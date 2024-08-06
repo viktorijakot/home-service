@@ -4,5 +4,8 @@
     --font-family: "Roboto", sans-serif;
     --font-size-s: 1rem;
     --font-size-m: 1.2rem;
+    --font-size-xm: 1.5rem;
+    --font-size-l: 3.2rem;
     --font-weight-m: 500;
+    --font-line-height-l: 5rem;
 }
