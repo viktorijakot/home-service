@@ -5,7 +5,9 @@ function HomePage() {
   return (
     <div className={styles.container}>
       <PageTitle
-        headlineParts={["Find Home ", "Service/Repair ", "Near You"]}
+        headlinePartOne={"Find Home"}
+        headlinePartTwo={"Service/Repair"}
+        headlinePartThree={"Near You"}
         text="Explore Best Home Service & Repair near you"
       />
     </div>

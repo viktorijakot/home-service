@@ -29,7 +29,6 @@ const router = createBrowserRouter([
       {
         path: ROUTES.LOGIN,
         element: <>Login</>,
-        navLinkInfo: "Login",
       },
     ],
   },

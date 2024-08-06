@@ -1,16 +1,19 @@
 import PropTypes from "prop-types";
 import styles from "./pageTitle.module.css";
 
-function PageTitle({ headlineParts, text }) {
+function PageTitle({
+  headlinePartOne,
+  headlinePartTwo,
+  headlinePartThree,
+  text,
+}) {
   return (
     <div className={styles.container}>
       <h1 className={styles.headline}>
-        {headlineParts[0] && headlineParts[0]}
-        <span className={styles.partTwo}>
-          {headlineParts[1] && headlineParts[1]}
-        </span>
+        {headlinePartOne}{" "}
+        <span className={styles.partTwo}>{headlinePartTwo} </span>
         <br />
-        {headlineParts[2] && headlineParts[2]}
+        {headlinePartThree}
       </h1>
       <p className={styles.text}>{text}</p>
     </div>
@@ -18,7 +21,9 @@ function PageTitle({ headlineParts, text }) {
 }
 
 PageTitle.propTypes = {
-  headlineParts: PropTypes.arrayOf(PropTypes.string).isRequired,
+  headlinePartOne: PropTypes.string.isRequired,
+  headlinePartTwo: PropTypes.string,
+  headlinePartThree: PropTypes.string,
   text: PropTypes.string,
 };
 

@@ -7,12 +7,9 @@ import { getNavLinks } from "../../router/PagesConfig";
 import Button from "../Button/Button";
 
 function Header() {
-  const navLinksToDisplay = getNavLinks().map(
-    ({ path, text }) =>
-      path !== "login" && (
-        <NavigationOptions key={path} link={path} linkTitle={text} />
-      )
-  );
+  const navLinksToDisplay = getNavLinks().map(({ path, text }) => (
+    <NavigationOptions key={path} link={path} linkTitle={text} />
+  ));
 
   const navigate = useNavigate();
 
