@@ -1,5 +1,8 @@
 :root {
+    --spacing-xxxs: 0.5rem;
     --spacing-xxs: 1rem;
     --spacing-xs: 1.5rem;
+    --spacing-s: 2rem;
+    --spacing-l: 4rem; 
     --border-radius-s: 8px;
 }
