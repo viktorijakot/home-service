@@ -4,7 +4,7 @@ import ServicesPage from "../pages/ServicesPage/ServicesPage";
 import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 
 import NotSignedLayout from "../layouts/NotSignedLayout";
-import { ROUTES } from "./routes";
+import { ROUTES } from "./Routes";
 
 const router = createBrowserRouter([
   {
