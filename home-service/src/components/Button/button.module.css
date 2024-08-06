@@ -1,0 +1,29 @@
+.button {
+    align-items: center;
+    background-color: var(--color-purple-primary);
+    border: none;
+    border-radius: var(--border-radius-s);
+    cursor: pointer;
+    color: var(--color-white);
+    font-size: var(--font-size-s);
+    max-width: max-content;
+    padding: var(--spacing-xxs) var(--spacing-xs);
+  
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    &:hover {
+        background-color: var(--color-purple-secondary);
+    }
+    
+    &:active {
+        background-color: var(--color-purple-secondary);
+    }
+    
+    &:focus {
+        background-color: var(--color-purple-primary);
+        outline: -webkit-focus-ring-color auto 1px;
+    }
+}
