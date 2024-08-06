@@ -1,25 +1,13 @@
-import classNames from "classnames";
 import styles from "./button.module.css";
 import PropTypes from "prop-types";
 
-function Button({
-  type = "button",
-  children,
-  isDisabled = false,
-  isUppercase,
-  onClick,
-}) {
-  const buttonClasses = classNames(
-    styles.button,
-    isUppercase && styles.uppercase
-  );
-
+function Button({ type = "button", children, isDisabled = false, onClick }) {
   return (
     <button
       onClick={onClick}
       disabled={isDisabled}
       type={type}
-      className={buttonClasses}
+      className={styles.button}
     >
       {children}
     </button>
