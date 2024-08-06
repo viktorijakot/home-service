@@ -18,7 +18,6 @@ Button.propTypes = {
   type: PropTypes.oneOf(["button", "submit", "reset"]).isRequired,
   children: PropTypes.node.isRequired,
   isDisabled: PropTypes.bool,
-  isUppercase: PropTypes.bool,
   onClick: PropTypes.func.isRequired,
 };
 
