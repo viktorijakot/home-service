@@ -1,0 +1,24 @@
+.container {
+    align-items: center;
+    background-color: var(--color-purple-tertiary);
+    border-radius: var(--spacing-xxxxs);
+    cursor: pointer;
+    color: var(--color-purple-quaternary);
+    display: flex;
+    flex-direction: column;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-m);
+    height: 140px;
+    justify-content: center;
+    gap: var(--spacing-xxs);
+    text-transform: capitalize;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    width: 160px;
+
+    &:hover {
+        background-color: var(--color-purple-super-light);
+        border-color: var(--color-purple-light);
+        color: var(--color-purple-primary);
+        transition: 0.3s;
+    }
+}

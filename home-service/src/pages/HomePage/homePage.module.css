@@ -8,3 +8,16 @@
     width: 30%;
     gap: var(--spacing-xxs);
 }
+
+.categoriesList {
+    align-items: center;
+    display: flex;
+    margin-top: var(--spacing-l);
+    justify-content: center;
+    gap : var(--spacing-xxs);
+}
+
+.secondTitle {
+    font-size: var(--font-size-m);
+    margin: var(--spacing-s) 0rem;
+}

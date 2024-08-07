@@ -3,6 +3,8 @@ import PageTitle from "../../components/PageTitle/PageTitle";
 import styles from "./homePage.module.css";
 import Search from "../../assets/icons/search.svg";
 import TextField from "../../components/TextField/TextField";
+import CategoryCard from "../../components/CategoryCard/CategoryCard";
+import { CATEGORIES } from "../../const/categories";
 
 function HomePage() {
   return (
@@ -25,6 +27,12 @@ function HomePage() {
           <img src={Search} alt="search" />
         </Button>
       </div>
+      <div className={styles.categoriesList}>
+        {CATEGORIES.map(({ name, imgUrl }) => (
+          <CategoryCard key={name} name={name} imgUrl={imgUrl} />
+        ))}
+      </div>
+      <h2 className={styles.secondTitle}>Popular businesses</h2>
     </div>
   );
 }
