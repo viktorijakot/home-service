@@ -21,3 +21,9 @@
     font-size: var(--font-size-m);
     margin: var(--spacing-s) 0rem;
 }
+
+.businessesList {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--spacing-xxs);
+}

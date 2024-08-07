@@ -5,6 +5,8 @@ import Search from "../../assets/icons/search.svg";
 import TextField from "../../components/TextField/TextField";
 import CategoryCard from "../../components/CategoryCard/CategoryCard";
 import { CATEGORIES } from "../../const/categories";
+import BusinessesCard from "../../components/BusinessesCard/BusinessesCard";
+import { BUSINESSES } from "../../const/businesses";
 
 function HomePage() {
   return (
@@ -33,6 +35,24 @@ function HomePage() {
         ))}
       </div>
       <h2 className={styles.secondTitle}>Popular businesses</h2>
+      <div className={styles.businessesList}>
+        {BUSINESSES.map(
+          ({ name, id, category, address, contactPerson, images }) => (
+            <BusinessesCard
+              key={id}
+              name={name}
+              category={category}
+              address={address}
+              contactPerson={contactPerson}
+              imgUrl={images[0].url}
+            >
+              <Button type="button" onClick={() => {}}>
+                Book now
+              </Button>
+            </BusinessesCard>
+          )
+        )}
+      </div>
     </div>
   );
 }
