@@ -1,3 +1,10 @@
 .container {
     padding: var(--spacing-l);
 }
+
+.searchContainer {
+    display: flex;
+    margin: var(--spacing-s) auto;
+    width: 30%;
+    gap: var(--spacing-xxs);
+}
