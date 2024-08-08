@@ -4,6 +4,7 @@ import ServicesPage from "../pages/ServicesPage/ServicesPage";
 import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 import NotSignedLayout from "../layouts/NotSignedLayout";
 import { ROUTES } from "./Routes";
+import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.LOGIN,
         element: <>Login</>,
+      },
+      {
+        path: ROUTES.SEARCH_CATEGORY,
+        element: <CategoriesPage />,
       },
     ],
   },
