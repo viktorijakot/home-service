@@ -37,14 +37,15 @@ function HomePage() {
       <h2 className={styles.secondTitle}>Popular businesses</h2>
       <div className={styles.businessesList}>
         {BUSINESSES.map(
-          ({ name, id, category, address, contactPerson, images }) => (
+          ({ name, _id, category, address, contactPerson, images }) => (
             <BusinessesCard
-              key={id}
+              key={_id}
               name={name}
               category={category}
               address={address}
               contactPerson={contactPerson}
               imgUrl={images[0].url}
+              id={_id}
             >
               <Button type="button" onClick={() => {}}>
                 Book now
