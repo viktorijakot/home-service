@@ -27,7 +27,7 @@ Button.propTypes = {
   type: PropTypes.oneOf(["button", "submit", "reset"]).isRequired,
   children: PropTypes.node.isRequired,
   isDisabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   shape: PropTypes.oneOf(["rounded", "circle"]),
 };
 
