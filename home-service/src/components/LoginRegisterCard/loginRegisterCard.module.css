@@ -1,0 +1,14 @@
+.container {
+    border-radius: var(--border-radius-m);
+    box-shadow: #5614d040 5px 5px 15px;
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-s);
+    width: max-content;
+}
+
+.title {
+    font-size: var(--font-size-xm);
+    margin-bottom: var(--spacing-s);
+    text-align: center;
+}
