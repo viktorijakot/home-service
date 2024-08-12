@@ -5,12 +5,13 @@ import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
 import NotSignedLayout from "../layouts/NotSignedLayout";
 import { ROUTES } from "./Routes";
 import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
+import LoginRegisterPage from "../pages/LoginRegisterPage/LoginRegisterPage";
 
 const router = createBrowserRouter([
   {
     path: ROUTES.BASE,
     element: <NotSignedLayout />,
-    // errorElement: <NotFoundPage />,
+    errorElement: <>404 Error</>,
     children: [
       {
         path: ROUTES.BASE,
@@ -29,7 +30,11 @@ const router = createBrowserRouter([
       },
       {
         path: ROUTES.LOGIN,
-        element: <>Login</>,
+        element: <LoginRegisterPage />,
+      },
+      {
+        path: ROUTES.REGISTER,
+        element: <LoginRegisterPage />,
       },
       {
         path: ROUTES.SEARCH_CATEGORY,
