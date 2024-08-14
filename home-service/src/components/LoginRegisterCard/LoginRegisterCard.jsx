@@ -4,7 +4,7 @@ import { ROUTES } from "../../router/Routes";
 import Login from "../Auth/Login/Login";
 import Register from "../Auth/Register/Register";
 
-function LoginRegisterCard() {
+const LoginRegisterCard = () => {
   const location = useLocation();
 
   return (
@@ -13,6 +13,6 @@ function LoginRegisterCard() {
       {location.pathname === ROUTES.REGISTER && <Register />}
     </div>
   );
-}
+};
 
 export default LoginRegisterCard;

@@ -1,12 +1,12 @@
 import PropTypes from "prop-types";
 import styles from "./pageTitle.module.css";
 
-function PageTitle({
+const PageTitle = ({
   headlinePartOne,
   headlinePartTwo,
   headlinePartThree,
   text,
-}) {
+}) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.headline}>
@@ -18,7 +18,7 @@ function PageTitle({
       <p className={styles.text}>{text}</p>
     </div>
   );
-}
+};
 
 PageTitle.propTypes = {
   headlinePartOne: PropTypes.string.isRequired,

@@ -6,7 +6,7 @@ import TextField from "../../TextField/TextField";
 import Button from "../../Button/Button";
 import { ROUTES } from "../../../router/Routes";
 
-function Login() {
+const Login = () => {
   const { login } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -49,6 +49,6 @@ function Login() {
       </div>
     </form>
   );
-}
+};
 
 export default Login;

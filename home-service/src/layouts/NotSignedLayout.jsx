@@ -1,13 +1,13 @@
 import { Outlet } from "react-router-dom";
 import Header from "../components/Header/Header";
 
-function NotSignedLayout() {
+const NotSignedLayout = () => {
   return (
     <>
       <Header />
       <Outlet />
     </>
   );
-}
+};
 
 export default NotSignedLayout;

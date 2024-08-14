@@ -8,7 +8,7 @@ import { CATEGORIES } from "../../const/categories";
 import BusinessesCard from "../../components/BusinessesCard/BusinessesCard";
 import { BUSINESSES } from "../../const/businesses";
 
-function HomePage() {
+const HomePage = () => {
   return (
     <div className={styles.container}>
       <PageTitle
@@ -56,6 +56,6 @@ function HomePage() {
       </div>
     </div>
   );
-}
+};
 
 export default HomePage;

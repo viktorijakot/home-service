@@ -4,13 +4,13 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-function Button({
+const Button = ({
   type = "button",
   children,
   isDisabled = false,
   onClick,
   shape = "rounded",
-}) {
+}) => {
   return (
     <button
       onClick={onClick}
@@ -21,7 +21,7 @@ function Button({
       {children}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   type: PropTypes.oneOf(["button", "submit", "reset"]).isRequired,

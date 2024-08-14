@@ -5,7 +5,7 @@ import Button from "../../Button/Button";
 import { ROUTES } from "../../../router/Routes";
 import styles from "./register.module.css";
 
-function Register() {
+const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -79,6 +79,6 @@ function Register() {
       </div>
     </form>
   );
-}
+};
 
 export default Register;

@@ -6,7 +6,7 @@ import { ROUTES } from "../../router/Routes";
 
 const cx = classNames.bind(styles);
 
-function CategoryCard({ imgUrl, name, shape }) {
+const CategoryCard = ({ imgUrl, name, shape }) => {
   const { category } = useParams();
   const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ function CategoryCard({ imgUrl, name, shape }) {
       {name}
     </div>
   );
-}
+};
 
 CategoryCard.propTypes = {
   imgUrl: PropTypes.string.isRequired,

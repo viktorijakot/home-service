@@ -1,7 +1,7 @@
 import LoginRegisterCard from "../../components/LoginRegisterCard/LoginRegisterCard";
 import styles from "./loginRegisterPage.module.css";
 
-function LoginRegisterPage() {
+const LoginRegisterPage = () => {
   return (
     <>
       <div className={styles.container}>
@@ -9,6 +9,6 @@ function LoginRegisterPage() {
       </div>
     </>
   );
-}
+};
 
 export default LoginRegisterPage;

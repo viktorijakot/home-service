@@ -12,10 +12,8 @@ const Avatar = ({ children }) => {
   const [showLogout, setShowLogout] = useState(false);
 
   const handleLogoutClick = () => {
-    // Log out the user
     logout();
 
-    // Redirect to the login page
     navigate(ROUTES.LOGIN);
   };
 

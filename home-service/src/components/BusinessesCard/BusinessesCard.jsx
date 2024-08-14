@@ -7,7 +7,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-function BusinessesCard({
+const BusinessesCard = ({
   imgUrl,
   category,
   name,
@@ -15,7 +15,7 @@ function BusinessesCard({
   address,
   children,
   id,
-}) {
+}) => {
   const navigate = useNavigate();
 
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, {
@@ -60,7 +60,7 @@ function BusinessesCard({
       </div>
     </div>
   );
-}
+};
 
 BusinessesCard.propTypes = {
   imgUrl: PropTypes.string.isRequired,

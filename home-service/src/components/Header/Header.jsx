@@ -9,7 +9,7 @@ import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
 import Avatar from "../Avatar/Avatar";
 
-function Header() {
+const Header = () => {
   const navLinksToDisplay = getNavLinks().map(({ path, text }) => (
     <NavigationOptions key={path} link={path} linkTitle={text} />
   ));
@@ -38,6 +38,6 @@ function Header() {
       )}
     </header>
   );
-}
+};
 
 export default Header;

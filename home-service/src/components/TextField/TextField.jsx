@@ -4,7 +4,7 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-function TextField({
+const TextField = ({
   type,
   name,
   placeholder,
@@ -13,7 +13,7 @@ function TextField({
   isDisabled = false,
   isRequired = false,
   onChange,
-}) {
+}) => {
   return (
     <input
       type={type}
@@ -26,7 +26,7 @@ function TextField({
       className={cx("textField", shape)}
     />
   );
-}
+};
 
 TextField.propTypes = {
   type: PropTypes.string.isRequired,

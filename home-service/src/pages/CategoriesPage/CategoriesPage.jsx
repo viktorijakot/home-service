@@ -6,7 +6,7 @@ import { BUSINESSES } from "../../const/businesses";
 import BusinessesCard from "../../components/BusinessesCard/BusinessesCard";
 import Button from "../../components/Button/Button";
 
-function CategoriesPage() {
+const CategoriesPage = () => {
   const { category } = useParams();
 
   const filteredBusinesses = BUSINESSES.filter(
@@ -50,6 +50,6 @@ function CategoriesPage() {
       </div>
     </div>
   );
-}
+};
 
 export default CategoriesPage;
