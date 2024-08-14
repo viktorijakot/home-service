@@ -36,23 +36,14 @@ const HomePage = () => {
       </div>
       <h2 className={styles.secondTitle}>Popular businesses</h2>
       <div className={styles.businessesList}>
-        {BUSINESSES.map(
-          ({ name, _id, category, address, contactPerson, images }) => (
-            <BusinessesCard
-              key={_id}
-              name={name}
-              category={category}
-              address={address}
-              contactPerson={contactPerson}
-              imgUrl={images[0].url}
-              id={_id}
-            >
-              <Button type="button" onClick={() => {}}>
-                Book now
-              </Button>
-            </BusinessesCard>
-          )
-        )}
+        {BUSINESSES.map((business) => (
+          <BusinessesCard key={business._id} business={business}>
+            {console.log("business.images ===", business.images)}
+            <Button type="button" onClick={() => {}}>
+              Book now
+            </Button>
+          </BusinessesCard>
+        ))}
       </div>
     </div>
   );

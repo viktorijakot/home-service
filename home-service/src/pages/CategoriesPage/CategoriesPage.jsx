@@ -29,23 +29,13 @@ const CategoriesPage = () => {
       <div>
         <h2 className={styles.title}>{category}</h2>
         <div className={styles.businessesCardList}>
-          {filteredBusinesses.map(
-            ({ name, _id, category, address, contactPerson, images }) => (
-              <BusinessesCard
-                key={_id}
-                name={name}
-                category={category}
-                address={address}
-                contactPerson={contactPerson}
-                imgUrl={images[0].url}
-                id={_id}
-              >
-                <Button type="button" onClick={() => {}}>
-                  Book now
-                </Button>
-              </BusinessesCard>
-            )
-          )}
+          {filteredBusinesses.map((business) => (
+            <BusinessesCard key={business._id} business={business}>
+              <Button type="button" onClick={() => {}}>
+                Book now
+              </Button>
+            </BusinessesCard>
+          ))}
         </div>
       </div>
     </div>

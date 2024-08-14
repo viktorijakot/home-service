@@ -7,29 +7,23 @@ import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
-const BusinessesCard = ({
-  imgUrl,
-  category,
-  name,
-  contactPerson,
-  address,
-  children,
-  id,
-}) => {
+const BusinessesCard = ({ business, children }) => {
+  const { images, category, name, contactPerson, address, _id } = business;
   const navigate = useNavigate();
 
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, {
     category,
   });
+
   const [businessIds, setBusinessIds] = useLocalStorage("businessIds", []);
 
   const handleHeartClick = (e) => {
     e.stopPropagation();
     if (!isFavorited) {
-      setBusinessIds((prevIds) => [...prevIds, id]);
+      setBusinessIds((prevIds) => [...prevIds, _id]);
     } else {
       setBusinessIds((prevIds) =>
-        prevIds.filter((businessId) => businessId !== id)
+        prevIds.filter((businessId) => businessId !== _id)
       );
     }
   };
@@ -38,11 +32,11 @@ const BusinessesCard = ({
     e.stopPropagation();
   };
 
-  const isFavorited = businessIds.includes(id);
+  const isFavorited = businessIds.includes(_id);
 
   return (
     <div className={styles.container} onClick={() => navigate(categoryPath)}>
-      <img className={styles.image} src={imgUrl} alt={category} />
+      <img className={styles.image} src={images[0].url} alt={category} />
       <div className={styles.infoContainer}>
         <span className={styles.category}>{category}</span>
         <h3 className={styles.name}>{name}</h3>
@@ -63,13 +57,15 @@ const BusinessesCard = ({
 };
 
 BusinessesCard.propTypes = {
-  imgUrl: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  contactPerson: PropTypes.string.isRequired,
-  address: PropTypes.string.isRequired,
+  business: PropTypes.shape({
+    images: PropTypes.array.isRequired,
+    category: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    contactPerson: PropTypes.string.isRequired,
+    address: PropTypes.string.isRequired,
+    _id: PropTypes.string.isRequired,
+  }).isRequired,
   children: PropTypes.node,
-  id: PropTypes.string.isRequired,
 };
 
 export default BusinessesCard;
