@@ -19,7 +19,7 @@ const BusinessesCard = ({
   const navigate = useNavigate();
 
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, {
-    category: category,
+    category,
   });
   const [businessIds, setBusinessIds] = useLocalStorage("businessIds", []);
 
