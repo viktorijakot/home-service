@@ -1,0 +1,10 @@
+.navigationOption {
+    color: var(--color-grey-primary);
+    font-size: var(--font-size-m);
+    font-weight: var(--font-weight-m);
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}

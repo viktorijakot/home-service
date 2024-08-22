@@ -2,12 +2,23 @@
     align-items: center;
     background-color: var(--color-purple-primary);
     border: none;
-    border-radius: var(--border-radius-s);
     cursor: pointer;
     color: var(--color-white);
+    display: flex;
+    justify-content: center;
     font-size: var(--font-size-s);
     max-width: max-content;
     padding: var(--spacing-xxs) var(--spacing-xs);
+
+    &.rounded {
+        border-radius: var(--border-radius-s);
+    }
+
+    &.circle {
+        border-radius: 50%;
+        height: 4rem;
+        width: 4rem;
+    }
   
     &:disabled {
       opacity: 0.5;

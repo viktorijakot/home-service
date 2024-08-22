@@ -1,24 +1,34 @@
 import styles from "./button.module.css";
 import PropTypes from "prop-types";
+import classNames from "classnames/bind";
 
-function Button({ type = "button", children, isDisabled = false, onClick }) {
+const cx = classNames.bind(styles);
+
+const Button = ({
+  type = "button",
+  children,
+  isDisabled = false,
+  onClick,
+  shape = "rounded",
+}) => {
   return (
     <button
       onClick={onClick}
       disabled={isDisabled}
       type={type}
-      className={styles.button}
+      className={cx("button", shape)}
     >
       {children}
     </button>
   );
-}
+};
 
 Button.propTypes = {
   type: PropTypes.oneOf(["button", "submit", "reset"]).isRequired,
   children: PropTypes.node.isRequired,
   isDisabled: PropTypes.bool,
-  onClick: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
+  shape: PropTypes.oneOf(["rounded", "circle"]),
 };
 
 export default Button;
