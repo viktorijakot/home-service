@@ -1,17 +1,17 @@
-import styles from "./header.module.css";
-import Logo from "@/assets/logo.svg";
-import { NavLink, useNavigate } from "react-router-dom";
-import NavigationOptions from "../NavigationOptions/NavigationOptions";
-import { useContext } from "react";
-import Avatar from "../Avatar/Avatar";
-import { UserContext } from "@/context/UserContext";
-import { getNavLinks } from "@/router/PagesConfig";
-import { ROUTES } from "@/router/Routes";
-import Button from "@/components/common/Button/Button";
+import styles from './header.module.css';
+import Logo from '@/assets/logo.svg';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { navLinks } from '@/router/Router';
+import NavigationOptions from '../NavigationOptions/NavigationOptions';
+import { UserContext } from '@/context/UserContext';
+import { ROUTES } from '@/router/Routes';
+import Avatar from '../Avatar/Avatar';
+import Button from '@/components/common/Button/Button';
 
 const Header = () => {
-  const navLinksToDisplay = getNavLinks().map(({ path, text }) => (
-    <NavigationOptions key={path} link={path} linkTitle={text} />
+  const navLinksToDisplay = navLinks.map(({ path, navLinkInfo }) => (
+    <NavigationOptions key={path} link={path} linkTitle={navLinkInfo} />
   ));
   const { user } = useContext(UserContext);
 
