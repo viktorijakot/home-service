@@ -1,4 +1,4 @@
-import LoginRegisterCard from "../../components/LoginRegisterCard/LoginRegisterCard";
+import LoginRegisterCard from "@/components/LoginRegisterCard/LoginRegisterCard";
 import styles from "./loginRegisterPage.module.css";
 
 const LoginRegisterPage = () => {

@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import CategoryCard from "../../components/CategoryCard/CategoryCard";
-import { CATEGORIES } from "../../const/categories";
 import styles from "./categoriesPage.module.css";
-import { BUSINESSES } from "../../const/businesses";
-import BusinessesCard from "../../components/BusinessesCard/BusinessesCard";
-import Button from "../../components/Button/Button";
+import { BUSINESSES } from "@/const/businesses";
+import { CATEGORIES } from "@/const/categories";
+import BusinessesCard from "@/components/BusinessesCard/BusinessesCard";
+import Button from "@/components/Button/Button";
+import CategoryCard from "@/components/CategoryCard/CategoryCard";
 
 const CategoriesPage = () => {
   const { category } = useParams();

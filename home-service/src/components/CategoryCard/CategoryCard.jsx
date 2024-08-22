@@ -2,7 +2,7 @@ import styles from "./categoryCard.module.css";
 import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 import { generatePath, useNavigate, useParams } from "react-router-dom";
-import { ROUTES } from "../../router/Routes";
+import { ROUTES } from "@/router/Routes";
 
 const cx = classNames.bind(styles);
 

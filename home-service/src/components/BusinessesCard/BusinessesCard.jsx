@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import styles from "./businessesCard.module.css";
 import { generatePath, useNavigate } from "react-router-dom";
-import { ROUTES } from "../../router/Routes";
-import useLocalStorage from "../../hooks/useLocalStorage";
 import classNames from "classnames/bind";
+import { ROUTES } from "@/router/Routes";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const cx = classNames.bind(styles);
 
