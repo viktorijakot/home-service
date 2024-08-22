@@ -3,8 +3,8 @@ import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { UserContext } from "@/components/context/UserContext";
 import { ROUTES } from "@/router/Routes";
-import TextField from "@/components/TextField/TextField";
-import Button from "@/components/Button/Button";
+import TextField from "@/components/common/TextField/TextField";
+import Button from "@/components/common/Button/Button";
 
 const Login = () => {
   const { login } = useContext(UserContext);

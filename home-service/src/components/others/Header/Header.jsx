@@ -1,12 +1,12 @@
 import styles from "./header.module.css";
-import Logo from "../../assets/logo.svg";
+import Logo from "@/assets/logo.svg";
 import { NavLink, useNavigate } from "react-router-dom";
-import { ROUTES } from "../../router/Routes";
+import { ROUTES } from "../../../router/Routes";
 import NavigationOptions from "../NavigationOptions/NavigationOptions";
-import { getNavLinks } from "../../router/PagesConfig";
-import Button from "../Button/Button";
+import { getNavLinks } from "../../../router/PagesConfig";
+import Button from "../../common/Button/Button";
 import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 import Avatar from "../Avatar/Avatar";
 
 const Header = () => {

@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import styles from "./categoriesPage.module.css";
 import { BUSINESSES } from "@/const/businesses";
 import { CATEGORIES } from "@/const/categories";
-import BusinessesCard from "@/components/BusinessesCard/BusinessesCard";
-import Button from "@/components/Button/Button";
-import CategoryCard from "@/components/CategoryCard/CategoryCard";
+import Button from "@/components/common/Button/Button";
+import CategoryCard from "@/components/others/CategoryCard/CategoryCard";
+import BusinessesCard from "@/components/others/BusinessesCard/BusinessesCard";
 
 const CategoriesPage = () => {
   const { category } = useParams();

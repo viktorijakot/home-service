@@ -1,12 +1,12 @@
-import PageTitle from "@/components/PageTitle/PageTitle";
+import PageTitle from "@/components/others/PageTitle/PageTitle";
 import styles from "./homePage.module.css";
-import TextField from "@/components/TextField/TextField";
-import Button from "@/components/Button/Button";
+import TextField from "@/components/common/TextField/TextField";
+import Button from "@/components/common/Button/Button";
 import { CATEGORIES } from "@/const/categories";
-import CategoryCard from "@/components/CategoryCard/CategoryCard";
 import { BUSINESSES } from "@/const/businesses";
-import BusinessesCard from "@/components/BusinessesCard/BusinessesCard";
 import Search from "@/assets/icons/search.svg";
+import CategoryCard from "@/components/others/CategoryCard/CategoryCard";
+import BusinessesCard from "@/components/others/BusinessesCard/BusinessesCard";
 
 const HomePage = () => {
   return (

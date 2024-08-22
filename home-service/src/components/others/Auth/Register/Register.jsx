@@ -2,8 +2,8 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import styles from "./register.module.css";
 import { ROUTES } from "@/router/Routes";
-import TextField from "@/components/TextField/TextField";
-import Button from "@/components/Button/Button";
+import TextField from "@/components/common/TextField/TextField";
+import Button from "@/components/common/Button/Button";
 
 const Register = () => {
   const [email, setEmail] = useState("");
