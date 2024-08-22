@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router-dom";
 import "./App.css";
 import router from "./router/Router";
-import { UserProvider } from "./components/context/UserContext";
+import { UserProvider } from "./context/UserContext";
 
 const App = () => {
   return (

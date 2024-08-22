@@ -1,6 +1,6 @@
 import { createContext } from "react";
 import PropTypes from "prop-types";
-import useLocalStorage from "../../hooks/useLocalStorage";
+import useLocalStorage from "@/hooks/useLocalStorage";
 
 const UserContext = createContext(null);
 

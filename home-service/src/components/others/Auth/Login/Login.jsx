@@ -1,10 +1,10 @@
 import styles from "./login.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
-import { UserContext } from "@/components/context/UserContext";
 import { ROUTES } from "@/router/Routes";
 import TextField from "@/components/common/TextField/TextField";
 import Button from "@/components/common/Button/Button";
+import { UserContext } from "@/context/UserContext";
 
 const Login = () => {
   const { login } = useContext(UserContext);

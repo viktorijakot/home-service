@@ -2,9 +2,9 @@ import styles from "./avatar.module.css";
 import PropTypes from "prop-types";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../context/UserContext";
 import { ROUTES } from "@/router/Routes";
-import Button from "../../common/Button/Button";
+import { UserContext } from "@/context/UserContext";
+import Button from "@/components/common/Button/Button";
 
 const Avatar = ({ children }) => {
   const { logout } = useContext(UserContext);
