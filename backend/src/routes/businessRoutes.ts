@@ -1,8 +1,8 @@
-const express = require("express");
-const Category = require("../models/Category");
-const Business = require("../models/Business");
-const Booking = require("../models/Booking");
-const authMiddleware = require("../middlewares/authMiddleware");
+import express from "express";
+import Category from "../models/Category";
+import Business from "../models/Business";
+import Booking from "../models/Booking";
+import authMiddleware from "../middlewares/authMiddleware";
 
 const router = express.Router();
 
@@ -33,7 +33,7 @@ router.post("/", authMiddleware, async (req, res) => {
   } catch (err) {
     res.status(500).json({
       message: "Server error while adding business.",
-      error: err.message,
+      error: (err as Error).message,
     });
   }
 });
@@ -58,7 +58,9 @@ router.get("/category/:category", async (req, res) => {
     });
     res.json(filteredBusinesses);
   } catch (err) {
-    res.status(500).json({ message: "Error fetching businesses by category", error: err });
+    res
+      .status(500)
+      .json({ message: "Error fetching businesses by category", error: err });
   }
 });
 
@@ -77,4 +79,4 @@ router.get("/:id/bookings/date/:date", async (req, res) => {
   }
 });
 
-module.exports = router;
+export default router;
