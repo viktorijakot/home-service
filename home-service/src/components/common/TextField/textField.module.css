@@ -1,0 +1,26 @@
+.textField {
+    border: 2px solid var(--color-grey-quaternary);
+    color: var(--color-black-primary);
+    font-size: var(--font-size-s);
+    transition: box-shadow .1s ease-in,border .1s ease-in,background-color .1s ease-in;
+    width: 100%;
+
+    &.rounded {
+        border-radius: var(--border-radius-l);
+        padding: var(--spacing-xxs);
+    }
+
+    &.rectangle {
+        border-radius: var(--border-radius-xs);
+        line-height: var(--font-line-height-s);
+        padding: var(--spacing-xxxs) var(--spacing-xxs);
+    }
+
+    &:hover {
+        border-color: var(--color-grey-bold);
+    }
+
+    &:focus-visible {
+        outline-color: var(--color-purple-primary);
+    }
+}
