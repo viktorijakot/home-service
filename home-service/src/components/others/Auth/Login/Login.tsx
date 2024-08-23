@@ -5,6 +5,8 @@ import Button from '@/components/common/Button/Button';
 import { UserContext } from '@/context/UserContext';
 import { ROUTES } from '@/router/Routes';
 import TextField from '@/components/common/TextField/TextField';
+import { loginUser } from '@/api/authApi';
+import { LoginRequest } from '@/types/user';
 
 const Login = () => {
   const { login } = useContext(UserContext);
@@ -12,10 +14,17 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (e: MouseEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
-    login({ email, password });
+    const user: LoginRequest = { email, password };
     navigate(ROUTES.BASE);
+    try {
+      const response = await loginUser(user);
+      login(response);
+      navigate(ROUTES.BASE);
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
