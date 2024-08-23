@@ -1,19 +1,15 @@
 import useLocalStorage from '@/hooks/useLocalStorage';
+import { LoginRequest, LoginResponse, User } from '@/types/user';
 import { createContext, useMemo } from 'react';
 
 interface UserProviderProps {
   children: React.ReactNode;
 }
 
-interface User {
-  email: string;
-  password: string;
-}
-
 const UserContext = createContext<{
   user: User | null;
   isLoggedIn: boolean;
-  login: (user: User) => void;
+  login: (user: LoginResponse) => void;
   logout: () => void;
 }>({
   user: null,
@@ -24,11 +20,19 @@ const UserContext = createContext<{
 
 const UserProvider = ({ children }: UserProviderProps) => {
   const [user, setUser] = useLocalStorage<User | null>('user', null);
+  const [, setToken] = useLocalStorage<string | null>('token', null);
 
   const isLoggedIn = !!user;
 
-  const login = (user: User) => setUser(user);
-  const logout = () => setUser(null);
+  const login = (loginResponse: LoginResponse) => {
+    setUser(loginResponse.user);
+    setToken(loginResponse.token);
+  };
+
+  const logout = () => {
+    setUser(null);
+    setToken(null);
+  };
 
   const contextValue = useMemo(() => ({ user, login, logout, isLoggedIn }), [user, login, logout, isLoggedIn]);
 
