@@ -2,16 +2,17 @@ import { ROUTES } from '@/router/Routes';
 import styles from './categoryCard.module.css';
 import classNames from 'classnames/bind';
 import { generatePath, useNavigate, useParams } from 'react-router-dom';
+import getCategoryImage from './getCategoryImage';
+import { Category } from '@/types/categories';
 
 const cx = classNames.bind(styles);
 
 export interface CategoryCardProps {
-  imgUrl: string;
-  name: string;
+  name: Category['name'];
   shape?: 'rectangle' | 'square';
 }
 
-const CategoryCard = ({ imgUrl, name, shape }: CategoryCardProps) => {
+const CategoryCard = ({ name, shape }: CategoryCardProps) => {
   const { category } = useParams();
   const navigate = useNavigate();
 
@@ -21,7 +22,7 @@ const CategoryCard = ({ imgUrl, name, shape }: CategoryCardProps) => {
 
   return (
     <div className={cx('container', shape, { active: category === name })} onClick={() => navigate(categoryPath)}>
-      <img src={imgUrl} alt={name} />
+      <img src={getCategoryImage(name)} alt={name} />
       {name}
     </div>
   );
