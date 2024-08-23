@@ -1,11 +1,13 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, MouseEvent, useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import styles from './register.module.css';
 import { ROUTES } from '@/router/Routes';
 import TextField from '@/components/common/TextField/TextField';
 import Button from '@/components/common/Button/Button';
+import { registerUser } from '@/api/authApi';
 
 const Register = () => {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -16,7 +18,7 @@ const Register = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleSubmit = (e: MouseEvent) => {
+  const handleSubmit = async (e: MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
 
@@ -29,18 +31,34 @@ const Register = () => {
       setError('Passwords do not match!');
       return;
     }
-
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
-
-    navigate(ROUTES.LOGIN);
+    try {
+      const status = await registerUser({ name, email, password });
+      if (status === 201) {
+        navigate(ROUTES.LOGIN);
+        setName('');
+        setEmail('');
+        setPassword('');
+        setConfirmPassword('');
+      }
+    } catch (error) {
+      const errorMsg: any = error;
+      setError(errorMsg.response.data.message);
+    }
   };
 
   return (
-    <form onSubmit={(e) => handleSubmit} className={styles.form}>
+    <form onSubmit={handleSubmit} className={styles.form}>
       <h2 className={styles.title}>Register</h2>
       {error && <p className={styles.error}>{error}</p>}
+      <TextField
+        type="name"
+        placeholder="Name"
+        name="name"
+        id="name"
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
+        shape="rectangle"
+        isRequired
+      />
       <TextField
         type="email"
         placeholder="Email"
@@ -62,7 +80,6 @@ const Register = () => {
       <TextField
         type="password"
         placeholder="Confirm Password"
-        // value={confirmPassword}
         name="confirmPassword"
         id="confirmPassword"
         onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
