@@ -1,22 +1,41 @@
 import { useParams } from 'react-router-dom';
 import styles from './categoriesPage.module.css';
-import { BUSINESSES } from '@/const/businesses';
-import { CATEGORIES } from '@/const/categories';
 import CategoryCard from '@/components/others/CategoryCard/CategoryCard';
 import BusinessesCard from '@/components/others/BusinessesCard/BusinessesCard';
 import Button from '@/components/common/Button/Button';
+import { useEffect, useState } from 'react';
+import { fetchCategories } from '@/api/categoriesApi';
+import { fetchBusinesses } from '@/api/businessesApi';
+import { Category } from '@/types/categories';
+import { Business } from '@/types/businesses';
 
 const CategoriesPage = () => {
   const { category } = useParams();
+  const [business, setBusiness] = useState<Business[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
 
-  const filteredBusinesses = BUSINESSES.filter((business) => business.category === category);
+  useEffect(() => {
+    fetchBusinesses()
+      .then((resp) => {
+        setBusiness(resp);
+      })
+      .catch((err) => console.error(err));
+
+    fetchCategories()
+      .then((resp) => {
+        setCategories(resp);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  const filteredBusinesses = business.filter((business) => business.category === category);
 
   return (
     <div className={styles.container}>
       <div className={styles.categories}>
         <h2 className={styles.titleCat}>Categories</h2>
-        {CATEGORIES.map(({ name, imgUrl }) => (
-          <CategoryCard key={name} name={name} imgUrl={imgUrl} shape="rectangle" />
+        {categories.map(({ _id, name }) => (
+          <CategoryCard key={_id} name={name} shape="rectangle" />
         ))}
       </div>
       <div>
