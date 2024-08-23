@@ -1,8 +1,15 @@
 import styles from "./button.module.css";
-import PropTypes from "prop-types";
 import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
+
+interface ButtonProps {
+  type: "button" | "submit" | "reset";
+  shape?: "rounded" | "circle";
+  children: React.ReactNode;
+  isDisabled?: boolean;
+  onClick?: () => void;
+}
 
 const Button = ({
   type = "button",
@@ -10,7 +17,7 @@ const Button = ({
   isDisabled = false,
   onClick,
   shape = "rounded",
-}) => {
+}: ButtonProps) => {
   return (
     <button
       onClick={onClick}
@@ -21,14 +28,6 @@ const Button = ({
       {children}
     </button>
   );
-};
-
-Button.propTypes = {
-  type: PropTypes.oneOf(["button", "submit", "reset"]).isRequired,
-  children: PropTypes.node.isRequired,
-  isDisabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  shape: PropTypes.oneOf(["rounded", "circle"]),
 };
 
 export default Button;

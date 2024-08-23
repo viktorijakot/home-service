@@ -1,18 +1,17 @@
 import { NavLink } from "react-router-dom";
 import styles from "./navigationOptions.module.css";
-import PropTypes from "prop-types";
 
-const NavigationOptions = ({ link, linkTitle }) => {
+export interface NavigationOptionsProps {
+  link: string;
+  linkTitle: string;
+}
+
+const NavigationOptions = ({ link, linkTitle }: NavigationOptionsProps) => {
   return (
     <NavLink className={styles.navigationOption} to={link}>
       {linkTitle}
     </NavLink>
   );
-};
-
-NavigationOptions.propTypes = {
-  link: PropTypes.string.isRequired,
-  linkTitle: PropTypes.string.isRequired,
 };
 
 export default NavigationOptions;

@@ -1,44 +1,44 @@
-import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
-import styles from "./register.module.css";
-import { ROUTES } from "@/router/Routes";
-import TextField from "@/components/common/TextField/TextField";
-import Button from "@/components/common/Button/Button";
+import { ChangeEvent, useState } from 'react';
+import { NavLink, useNavigate } from 'react-router-dom';
+import styles from './register.module.css';
+import { ROUTES } from '@/router/Routes';
+import TextField from '@/components/common/TextField/TextField';
+import Button from '@/components/common/Button/Button';
 
 const Register = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [error, setError] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const isValidEmail = (email) => {
+  const isValidEmail = (email: string) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setError("");
+  const handleSubmit = (e: MouseEvent) => {
+    e.preventDefault();
+    setError('');
 
     if (!isValidEmail(email)) {
-      setError("Please enter a valid email address.");
+      setError('Please enter a valid email address.');
       return;
     }
 
     if (password !== confirmPassword) {
-      setError("Passwords do not match!");
+      setError('Passwords do not match!');
       return;
     }
 
-    setEmail("");
-    setPassword("");
-    setConfirmPassword("");
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
 
     navigate(ROUTES.LOGIN);
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
+    <form onSubmit={(e) => handleSubmit} className={styles.form}>
       <h2 className={styles.title}>Register</h2>
       {error && <p className={styles.error}>{error}</p>}
       <TextField
@@ -46,28 +46,26 @@ const Register = () => {
         placeholder="Email"
         name="email"
         id="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
         shape="rectangle"
         isRequired
       />
       <TextField
         type="password"
         placeholder="Password"
-        value={password}
         name="password"
         id="password"
-        onChange={(event) => setPassword(event.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         shape="rectangle"
         isRequired
       />
       <TextField
         type="password"
         placeholder="Confirm Password"
-        value={confirmPassword}
+        // value={confirmPassword}
         name="confirmPassword"
         id="confirmPassword"
-        onChange={(event) => setConfirmPassword(event.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
         shape="rectangle"
         isRequired
       />

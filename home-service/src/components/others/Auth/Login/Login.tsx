@@ -1,19 +1,19 @@
-import styles from "./login.module.css";
-import { NavLink, useNavigate } from "react-router-dom";
-import { useContext, useState } from "react";
-import { ROUTES } from "@/router/Routes";
-import TextField from "@/components/common/TextField/TextField";
-import Button from "@/components/common/Button/Button";
-import { UserContext } from "@/context/UserContext";
+import styles from './login.module.css';
+import { NavLink, useNavigate } from 'react-router-dom';
+import { ChangeEvent, MouseEvent, useContext, useState } from 'react';
+import Button from '@/components/common/Button/Button';
+import { UserContext } from '@/context/UserContext';
+import { ROUTES } from '@/router/Routes';
+import TextField from '@/components/common/TextField/TextField';
 
 const Login = () => {
   const { login } = useContext(UserContext);
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e: MouseEvent<HTMLFormElement>) => {
+    e.preventDefault();
     login({ email, password });
     navigate(ROUTES.BASE);
   };
@@ -26,18 +26,16 @@ const Login = () => {
         placeholder="Email"
         name="email"
         id="email"
-        value={email}
-        onChange={(event) => setEmail(event.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
         shape="rectangle"
         isRequired
       />
       <TextField
         type="password"
         placeholder="Password"
-        value={password}
         name="password"
         id="password"
-        onChange={(event) => setPassword(event.target.value)}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
         shape="rectangle"
         isRequired
       />

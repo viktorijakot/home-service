@@ -1,12 +1,15 @@
-import styles from "./avatar.module.css";
-import PropTypes from "prop-types";
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { ROUTES } from "@/router/Routes";
-import { UserContext } from "@/context/UserContext";
-import Button from "@/components/common/Button/Button";
+import { UserContext } from '@/context/UserContext';
+import styles from './avatar.module.css';
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '@/router/Routes';
+import Button from '@/components/common/Button/Button';
 
-const Avatar = ({ children }) => {
+interface AvatarProps {
+  children: React.ReactNode;
+}
+
+const Avatar = ({ children }: AvatarProps) => {
   const { logout } = useContext(UserContext);
   const navigate = useNavigate();
   const [showLogout, setShowLogout] = useState(false);
@@ -35,10 +38,6 @@ const Avatar = ({ children }) => {
       )}
     </>
   );
-};
-
-Avatar.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default Avatar;
