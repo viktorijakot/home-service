@@ -18,6 +18,13 @@ const Register = () => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
   };
 
+  const resetValues = () => {
+    setName('');
+    setEmail('');
+    setPassword('');
+    setConfirmPassword('');
+  };
+
   const handleSubmit = async (e: MouseEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError('');
@@ -32,14 +39,9 @@ const Register = () => {
       return;
     }
     try {
-      const status = await registerUser({ name, email, password });
-      if (status === 201) {
-        navigate(ROUTES.LOGIN);
-        setName('');
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
-      }
+      await registerUser({ name, email, password });
+      navigate(ROUTES.LOGIN);
+      resetValues();
     } catch (error) {
       const errorMsg: any = error;
       setError(errorMsg.response.data.message);
