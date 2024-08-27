@@ -3,12 +3,32 @@ import styles from './homePage.module.css';
 import Search from '@/assets/icons/search.svg';
 import TextField from '@/components/common/TextField/TextField';
 import Button from '@/components/common/Button/Button';
-import { CATEGORIES } from '@/const/categories';
 import CategoryCard from '@/components/others/CategoryCard/CategoryCard';
 import BusinessesCard from '@/components/others/BusinessesCard/BusinessesCard';
-import { BUSINESSES } from '@/const/businesses';
+import { useEffect, useState } from 'react';
+import { fetchBusinesses } from '@/api/businessesApi';
+import { fetchCategories } from '@/api/categoriesApi';
+import { Category } from '@/types/categories';
+import { Business } from '@/types/businesses';
 
 const HomePage = () => {
+  const [business, setBusiness] = useState<Business[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    fetchBusinesses()
+      .then((resp) => {
+        setBusiness(resp);
+      })
+      .catch((err) => console.error(err));
+
+    fetchCategories()
+      .then((resp) => {
+        setCategories(resp);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
   return (
     <div className={styles.container}>
       <PageTitle
@@ -24,13 +44,13 @@ const HomePage = () => {
         </Button>
       </div>
       <div className={styles.categoriesList}>
-        {CATEGORIES.map(({ name, imgUrl }) => (
-          <CategoryCard key={name} name={name} imgUrl={imgUrl} />
+        {categories.map(({ _id, name }) => (
+          <CategoryCard key={_id} name={name} />
         ))}
       </div>
       <h2 className={styles.secondTitle}>Popular businesses</h2>
       <div className={styles.businessesList}>
-        {BUSINESSES.map((business) => (
+        {business.map((business) => (
           <BusinessesCard key={business._id} business={business}>
             <Button type="button" onClick={() => {}}>
               Book now

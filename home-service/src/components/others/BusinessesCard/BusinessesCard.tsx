@@ -4,23 +4,9 @@ import classNames from 'classnames/bind';
 import { MouseEvent } from 'react';
 import { ROUTES } from '@/router/Routes';
 import useLocalStorage from '@/hooks/useLocalStorage';
+import { Business } from '@/types/businesses';
 
 const cx = classNames.bind(styles);
-
-interface Image {
-  url: string;
-}
-
-export interface Business {
-  _id: string;
-  name: string;
-  about?: string;
-  address: string;
-  category: string;
-  contactPerson: string;
-  email: string;
-  images: Image[];
-}
 
 interface BusinessesCardProps {
   business: Business;
@@ -40,7 +26,7 @@ const BusinessesCard = ({ business, children }: BusinessesCardProps) => {
   const handleHeartClick = (e: MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
     const isFavorited = businessIds.includes(_id);
-    console.log('isFavorited ===', isFavorited);
+
     if (!isFavorited) {
       setBusinessIds((prevIds) => [...prevIds, _id]);
     } else {
