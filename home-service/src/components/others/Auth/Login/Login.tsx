@@ -4,57 +4,44 @@ import { ChangeEvent, MouseEvent, useContext, useState } from 'react';
 import Button from '@/components/common/Button/Button';
 import { UserContext } from '@/context/UserContext';
 import { ROUTES } from '@/router/Routes';
-import TextField from '@/components/common/TextField/TextField';
 import { loginUser } from '@/api/authApi';
 import { LoginRequest } from '@/types/user';
+import { Form, Formik } from 'formik';
+import { loginInitialValues, loginValidationSchema } from '../const';
+import FormikInput from '@/components/common/FormikInput/FormikInput';
+import { AxiosError } from 'axios';
 
 const Login = () => {
   const { login } = useContext(UserContext);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleSubmit = async (e: MouseEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    const user: LoginRequest = { email, password };
-    navigate(ROUTES.BASE);
+  const handleSubmit = async (formValues: LoginRequest) => {
     try {
-      const response = await loginUser(user);
+      const response = await loginUser(formValues);
       login(response);
       navigate(ROUTES.BASE);
     } catch (error) {
-      console.error(error);
+      const errorMessage = error as AxiosError<{ message: string }>;
+      setError(errorMessage.response?.data.message ?? '');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <h2 className={styles.title}>Login</h2>
-      <TextField
-        type="email"
-        placeholder="Email"
-        name="email"
-        id="email"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-        shape="rectangle"
-        isRequired
-      />
-      <TextField
-        type="password"
-        placeholder="Password"
-        name="password"
-        id="password"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-        shape="rectangle"
-        isRequired
-      />
-      <Button type="submit">Log in</Button>
-      <div className={styles.link}>
-        <NavLink to={ROUTES.REGISTER} className={styles.signUp}>
-          Don`t have an account? Sign up
-        </NavLink>
-      </div>
-    </form>
+    <Formik initialValues={loginInitialValues} validationSchema={loginValidationSchema} onSubmit={handleSubmit}>
+      <Form className={styles.form}>
+        <h2 className={styles.title}>Login</h2>
+        <FormikInput name="email" type="email" placeholder="Email" />
+        <FormikInput name="password" type="password" placeholder="Password" />
+        {error && <p className={styles.error}>{error}</p>}
+        <Button type="submit">Log in</Button>
+        <div className={styles.link}>
+          <NavLink to={ROUTES.REGISTER} className={styles.signUp}>
+            Don`t have an account? Sign up
+          </NavLink>
+        </div>
+      </Form>
+    </Formik>
   );
 };
 
