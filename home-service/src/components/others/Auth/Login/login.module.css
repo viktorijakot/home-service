@@ -1,22 +1,28 @@
 .form {
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xxs);
-    width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  width: 600px;
 }
 
 .title {
-    font-size: var(--font-size-xm);
-    text-align: center;
-    margin-bottom: var(--spacing-s);
+  font-size: var(--font-size-xm);
+  text-align: center;
+  margin-bottom: var(--spacing-s);
 }
-  
+
 .link {
-    margin-top: var(--spacing-s);
-    text-align: center;
+  margin-top: var(--spacing-s);
+  text-align: center;
 }
-  
+
 .signUp {
-    color: var(--color-purple-primary);
-    font-weight: var(--font-weight-m);
+  color: var(--color-purple-primary);
+  font-weight: var(--font-weight-m);
+}
+
+.error {
+  font-size: var(--font-size-xs);
+  color: var(--color-error-red);
+  margin-top: var(--spacing-xxxxs);
 }

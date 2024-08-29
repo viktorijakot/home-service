@@ -10,6 +10,7 @@ import { fetchBusinesses } from '@/api/businessesApi';
 import { fetchCategories } from '@/api/categoriesApi';
 import { Category } from '@/types/categories';
 import { Business } from '@/types/businesses';
+import classNames from 'classnames';
 
 const HomePage = () => {
   const [business, setBusiness] = useState<Business[]>([]);
@@ -38,7 +39,7 @@ const HomePage = () => {
         text="Explore Best Home Service & Repair near you"
       />
       <div className={styles.searchContainer}>
-        <TextField type="text" name="search" id="search" placeholder="Search" onChange={() => {}} />
+        <TextField type="text" name="search" id="search" placeholder="Search" shape="rounded" onChange={() => {}} />
         <Button type="submit" shape="circle" onClick={() => {}}>
           <img src={Search} alt="search" />
         </Button>

@@ -5,96 +5,43 @@ import { ROUTES } from '@/router/Routes';
 import TextField from '@/components/common/TextField/TextField';
 import Button from '@/components/common/Button/Button';
 import { registerUser } from '@/api/authApi';
+import { RegisterUser } from '@/types/user';
+import { AxiosError } from 'axios';
+import { Formik, Form } from 'formik';
+import { registerInitialValus, reigsterValidationSchema } from '../const';
+import FormikInput from '@/components/common/FormikInput/FormikInput';
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [error, setError] = useState('');
 
-  const isValidEmail = (email: string) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
-
-  const resetValues = () => {
-    setName('');
-    setEmail('');
-    setPassword('');
-    setConfirmPassword('');
-  };
-
-  const handleSubmit = async (e: MouseEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError('');
-
-    if (!isValidEmail(email)) {
-      setError('Please enter a valid email address.');
-      return;
-    }
-
-    if (password !== confirmPassword) {
-      setError('Passwords do not match!');
-      return;
-    }
+  const handleSubmit = async (formValues: RegisterUser) => {
     try {
-      await registerUser({ name, email, password });
+      await registerUser(formValues);
       navigate(ROUTES.LOGIN);
-      resetValues();
     } catch (error) {
-      const errorMsg: any = error;
-      setError(errorMsg.response.data.message);
+      const errorMessage = error as AxiosError<{ message: string }>;
+      setError(errorMessage.response?.data.message ?? '');
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.form}>
-      <h2 className={styles.title}>Register</h2>
-      {error && <p className={styles.error}>{error}</p>}
-      <TextField
-        type="name"
-        placeholder="Name"
-        name="name"
-        id="name"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
-        shape="rectangle"
-        isRequired
-      />
-      <TextField
-        type="email"
-        placeholder="Email"
-        name="email"
-        id="email"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
-        shape="rectangle"
-        isRequired
-      />
-      <TextField
-        type="password"
-        placeholder="Password"
-        name="password"
-        id="password"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setPassword(e.target.value)}
-        shape="rectangle"
-        isRequired
-      />
-      <TextField
-        type="password"
-        placeholder="Confirm Password"
-        name="confirmPassword"
-        id="confirmPassword"
-        onChange={(e: ChangeEvent<HTMLInputElement>) => setConfirmPassword(e.target.value)}
-        shape="rectangle"
-        isRequired
-      />
-      <Button type="submit">Sign Up</Button>
-      <div className={styles.link}>
-        <NavLink to={ROUTES.LOGIN} className={styles.signIn}>
-          Already have an account? Log in
-        </NavLink>
-      </div>
-    </form>
+    <Formik initialValues={registerInitialValus} validationSchema={reigsterValidationSchema} onSubmit={handleSubmit}>
+      <Form className={styles.form}>
+        <h2 className={styles.title}>Register</h2>
+        <FormikInput name="name" placeholder="name" />
+        <FormikInput name="email" type="email" placeholder="Email" />
+        <FormikInput name="password" type="password" placeholder="Password" />
+        <FormikInput name="repeatPassword" type="password" placeholder="Repeat Password" />
+        {error && <p className={styles.error}>{error}</p>}
+        <Button type="submit">Sign Up</Button>
+        <div className={styles.link}>
+          <NavLink to={ROUTES.LOGIN} className={styles.signIn}>
+            Already have an account? Log in
+          </NavLink>
+        </div>
+      </Form>
+    </Formik>
   );
 };
 

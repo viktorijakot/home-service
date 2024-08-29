@@ -30,7 +30,7 @@ const Header = () => {
         {navLinksToDisplay}
       </nav>
       {user ? (
-        <Avatar>{user.email[0]}</Avatar>
+        <Avatar>{user.name[0]}</Avatar>
       ) : (
         <Button type="button" onClick={handleClick}>
           Login / Sign Up
