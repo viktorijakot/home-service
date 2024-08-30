@@ -23,15 +23,15 @@ const TimeSlotPicker = ({ slots, onSlotSelect }: TimeSlotPickerProps) => {
   return (
     <div className={styles.timeSlotContainer}>
       {slots.map((slot) => {
-        const isPast = isBefore(new Date(slot.startTime), now); // Ensure startTime is a Date object
+        const isPast = isBefore(new Date(slot.startTime), now);
         return (
           <button
-            key={new Date(slot.startTime).getTime()} // Ensure startTime is a Date object
+            key={new Date(slot.startTime).getTime()}
             className={cx('timeSlot', { booked: slot.isBooked, active: slot === activeSlot, disabled: isPast })}
             onClick={() => handleClick(slot)}
             disabled={slot.isBooked || isPast}
           >
-            {format(new Date(slot.startTime), 'h:mm a')} {/* Ensure startTime is a Date object */}
+            {format(new Date(slot.startTime), 'h:mm a')}
           </button>
         );
       })}
