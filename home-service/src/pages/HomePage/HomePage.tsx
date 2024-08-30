@@ -5,9 +5,6 @@ import TextField from '@/components/common/TextField/TextField';
 import Button from '@/components/common/Button/Button';
 import CategoryCard from '@/components/others/CategoryCard/CategoryCard';
 import BusinessesCard from '@/components/others/BusinessesCard/BusinessesCard';
-import { useEffect, useState } from 'react';
-import { fetchCategories } from '@/api/categoriesApi';
-import { Category } from '@/types/categories';
 import { useBusinesses } from '@/hooks/useBusinesses';
 import { useCategories } from '@/hooks/useCategories';
 
