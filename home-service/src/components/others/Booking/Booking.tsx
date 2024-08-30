@@ -17,30 +17,34 @@ const Booking = ({ id }: { id: Business['_id'] }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
   const [selectedSlot, setSelectedSlot] = useState<TimeSlot | null>(null);
+  const [error, setError] = useState<string>('');
   const { mutateAsync: postBooking } = useBookingRequest();
   const navigate = useNavigate();
-  const [error, setError] = useState<string>('');
   const { user } = useContext(UserContext);
   const { data: bookings } = useBookings();
 
   useEffect(() => {
     if (selectedDate && bookings) {
-      const slots = createMockTimeSlots(selectedDate);
-
-      const updatedSlots = slots.map((slot) => {
-        const isBooked = bookings.some(
-          (booking) =>
-            new Date(booking.date).toDateString() === selectedDate.toDateString() &&
-            new Date(booking.time).getTime() === slot.startTime.getTime() &&
-            (booking.status === 'pending' || booking.status === 'confirmed'),
-        );
-
-        return { ...slot, isBooked };
-      });
-
-      setTimeSlots(updatedSlots);
+      updateSlots(selectedDate, bookings);
     }
   }, [selectedDate, bookings]);
+
+  const updateSlots = (date: Date, bookings: any[]) => {
+    const slots = createMockTimeSlots(date);
+
+    const updatedSlots = slots.map((slot) => {
+      const isBooked = bookings.some(
+        (booking) =>
+          new Date(booking.date).toDateString() === date.toDateString() &&
+          new Date(booking.time).getTime() === slot.startTime.getTime() &&
+          (booking.status === 'pending' || booking.status === 'confirmed'),
+      );
+
+      return { ...slot, isBooked };
+    });
+
+    setTimeSlots(updatedSlots);
+  };
 
   const handleDateChange = (date: Date | null) => {
     setSelectedDate(date);
@@ -77,7 +81,7 @@ const Booking = ({ id }: { id: Business['_id'] }) => {
   return (
     <div className={styles.bookingContainer}>
       <button type="button" className={styles.closeButton} onClick={() => navigate(`/business/${id}`)}>
-        x {/* kai bus routas */}
+        x {/* Close button, navigate to single page later */}
       </button>
       <h3>Book a Service</h3>
       <p>Select Date and Time slot to book a service</p>
