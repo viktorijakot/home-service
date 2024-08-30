@@ -77,7 +77,7 @@ const Booking = ({ id }: { id: Business['_id'] }) => {
   return (
     <div className={styles.bookingContainer}>
       <button type="button" className={styles.closeButton} onClick={() => navigate(`/business/${id}`)}>
-        x
+        x {/* kai bus routas */}
       </button>
       <h3>Book a Service</h3>
       <p>Select Date and Time slot to book a service</p>
