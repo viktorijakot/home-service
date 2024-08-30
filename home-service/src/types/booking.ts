@@ -11,12 +11,6 @@ export interface BookingRequest {
   status: Status;
 }
 
-export interface Booking {
+export interface Booking extends BookingRequest{
   _id: string;
-  businessId: string;
-  date: Date;
-  time: string;
-  userEmail: string;
-  userName: string;
-  status: Status;
 }
