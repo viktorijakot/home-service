@@ -9,12 +9,5 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
     text-transform: capitalize;
-  }
-
-  .logout {
-    position: absolute;
-    right: var(--spacing-xxxl);
-    top: var(--spacing-m);
   }

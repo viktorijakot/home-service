@@ -2,40 +2,30 @@ import { UserContext } from '@/context/UserContext';
 import styles from './avatar.module.css';
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '@/router/Routes';
-import Button from '@/components/common/Button/Button';
+import UserSettingsDropDown from '../UserDropdownMenu/UserDropdownMenu';
+import { getUserDropdownButtons } from './utils';
 
 interface AvatarProps {
   children: React.ReactNode;
 }
 
 const Avatar = ({ children }: AvatarProps) => {
-  const { logout } = useContext(UserContext);
   const navigate = useNavigate();
-  const [showLogout, setShowLogout] = useState(false);
+  const { logout } = useContext(UserContext);
+  const [isUserSettingOpen, setIsUserSettingOpen] = useState(false);
 
-  const handleLogoutClick = () => {
-    logout();
-
-    navigate(ROUTES.LOGIN);
+  const handlesUserSettingOpen = () => {
+    setIsUserSettingOpen(!isUserSettingOpen);
   };
 
-  const toggleLogoutVisibility = () => {
-    setShowLogout(!showLogout);
-  };
+  const buttons = getUserDropdownButtons(navigate, logout);
 
   return (
     <>
-      <div className={styles.avatar} onClick={toggleLogoutVisibility}>
+      <div className={styles.avatar} onClick={handlesUserSettingOpen} data-button="settingDropDown">
         {children}
       </div>
-      {showLogout && (
-        <div className={styles.logout}>
-          <Button type="button" onClick={handleLogoutClick}>
-            Log out
-          </Button>
-        </div>
-      )}
+      <UserSettingsDropDown onClose={handlesUserSettingOpen} isVisible={isUserSettingOpen} buttons={buttons} />
     </>
   );
 };
