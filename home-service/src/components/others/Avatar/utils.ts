@@ -10,7 +10,7 @@ export const getUserDropdownButtons = (navigate: NavigateFunction, logout: () =>
     },
     {
       label: "My Bookings",
-      onClick: () => navigate("/my-bookings"), // fix later
+      onClick: () => navigate(ROUTES.MY_BOOKINGS),
     },
     {
       label: "Log Out",
