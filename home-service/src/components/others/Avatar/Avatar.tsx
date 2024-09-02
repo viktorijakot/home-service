@@ -25,7 +25,11 @@ const Avatar = ({ children }: AvatarProps) => {
       <div className={styles.avatar} onClick={handlesUserSettingOpen} data-button="settingDropDown">
         {children}
       </div>
-      <UserSettingsDropDown onClose={handlesUserSettingOpen} isVisible={isUserSettingOpen} buttons={buttons} />
+      <UserSettingsDropDown
+        onClose={() => setIsUserSettingOpen(false)}
+        isVisible={isUserSettingOpen}
+        buttons={buttons}
+      />
     </>
   );
 };

@@ -23,14 +23,19 @@ const UserSettingsDropDown = ({ isVisible, onClose, buttons }: UserSettingsDropD
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
 
-      if (dropDownRef.current && target.getAttribute("data-button") === "settingDropDown") {
+      if (dropDownRef.current && dropDownRef.current.contains(target)) {
         return;
       }
-      if (dropDownRef.current && !dropDownRef.current.contains(target)) {
-        onClose();
+
+      if (target.getAttribute("data-button") === "settingDropDown") {
+        return;
       }
+
+      onClose();
     };
+
     document.addEventListener("mousedown", handleOutsideClick);
+
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
     };
