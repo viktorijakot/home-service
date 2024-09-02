@@ -5,8 +5,6 @@ import useLocalStorage from "./useLocalStorage";
 export const BOOKINGS_KEY = "BOOKINGS";
 
 export const useBookings = () => {
-  const [token] = useLocalStorage<string | null>("token", null);
-
   return useQuery({
     queryKey: [BOOKINGS_KEY],
     queryFn: () => fetchBookings,
@@ -14,8 +12,6 @@ export const useBookings = () => {
 };
 
 export const useUserBookings = (email: string) => {
-  const [token] = useLocalStorage<string | null>("token", null);
-
   return useQuery({
     queryKey: [BOOKINGS_KEY, email],
     queryFn: () => fetchUserBookings(email),
