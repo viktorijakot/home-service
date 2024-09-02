@@ -6,7 +6,7 @@ export const BOOKINGS_KEY = "BOOKINGS";
 export const useBookings = () => {
   return useQuery({
     queryKey: [BOOKINGS_KEY],
-    queryFn: () => fetchBookings,
+    queryFn: fetchBookings,
   });
 };
 
