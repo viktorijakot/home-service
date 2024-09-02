@@ -11,6 +11,6 @@ export interface BookingRequest {
   status: Status;
 }
 
-export interface Booking extends BookingRequest{
+export interface Booking extends BookingRequest {
   _id: string;
 }
