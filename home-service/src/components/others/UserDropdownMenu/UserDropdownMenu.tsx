@@ -17,7 +17,7 @@ interface UserSettingsDropDownProps {
 }
 
 const UserSettingsDropDown = ({ isVisible, onClose, buttons }: UserSettingsDropDownProps) => {
-  const dropDownRef = useRef(null);
+  const dropDownRef = useRef<HTMLUListElement | null>(null);
 
   useEffect(() => {
     const handleOutsideClick = (event: MouseEvent) => {
@@ -26,7 +26,7 @@ const UserSettingsDropDown = ({ isVisible, onClose, buttons }: UserSettingsDropD
       if (dropDownRef.current && target.getAttribute("data-button") === "settingDropDown") {
         return;
       }
-      if (dropDownRef.current && !(dropDownRef.current as HTMLElement).contains(target)) {
+      if (dropDownRef.current && !dropDownRef.current.contains(target)) {
         onClose();
       }
     };
@@ -38,24 +38,25 @@ const UserSettingsDropDown = ({ isVisible, onClose, buttons }: UserSettingsDropD
 
   return (
     <ul
+      ref={dropDownRef}
       role="menu"
       aria-label="settings menu"
-      onClick={onClose}
-      onKeyDown={onClose}
       tabIndex={0}
       className={cx({ dropDownCotainer: isVisible }, { hidden: !isVisible })}
     >
-      {buttons.map((button, index) => (
-        <li key={index}>
+      {buttons.map(({ label, ariaLabel, onClick }) => (
+        <li key={label}>
           <button
-            ref={dropDownRef}
             className={styles.button}
             type="button"
-            aria-label={button.ariaLabel || button.label}
+            aria-label={ariaLabel || label}
             role="menuitem"
-            onClick={button.onClick}
+            onClick={() => {
+              onClick();
+              onClose();
+            }}
           >
-            {button.label}
+            {label}
           </button>
         </li>
       ))}
