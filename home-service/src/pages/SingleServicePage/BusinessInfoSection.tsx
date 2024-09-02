@@ -1,16 +1,19 @@
 import styles from './BusinessInfoSection.module.scss';
-import useCurrentBusiness from '@/hooks/useBusinesses';
+interface BusinessInfoSectionProps {
+  useBusiness: {
+    about: string;
+    imageUrls: string[];
+  };
+}
 
-const BusinessInfoSection: React.FC = () => {
-  const { currentBusiness } = useCurrentBusiness();
-
+const BusinessInfoSection: React.FC<BusinessInfoSectionProps> = ({ useBusiness }) => {
   return (
     <>
       <h2 className={styles.title}>Description</h2>
-      <p className={styles.sectionDescription}>{currentBusiness?.about}</p>
-      <h2 className={styles.title}>Gallary</h2>
+      <p className={styles.sectionDescription}>{useBusiness?.about}</p>
+      <h2 className={styles.title}>Gallery</h2>
       <div className={styles.gallary}>
-        {currentBusiness?.imageUrls.map((imageUrl, index) => (
+        {useBusiness?.imageUrls.map((imageUrl, index) => (
           <img className={styles.businessImg} src={imageUrl} alt={`business photo ${index}`} key={index} />
         ))}
       </div>

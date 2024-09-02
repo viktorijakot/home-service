@@ -1,19 +1,16 @@
 import styles from './SimilarBusiness.module.css';
 import { generatePath, Link } from 'react-router-dom';
-import useCurrentBusiness, { useBusinesses } from '@/hooks/useBusinesses';
+import { useBusinesses } from '@/hooks/useBusinesses';
+import { useBusiness } from '@/hooks/useBusinesses';
 import { ROUTES } from '@/router/Routes';
 
 const SimilarBusiness: React.FC = () => {
   const { data: businesses } = useBusinesses();
-  const { currentBusiness } = useCurrentBusiness();
+  const { data: currentBusiness } = useBusiness();
 
   const similarBusiness = businesses?.filter(
     (business) => business.category === currentBusiness?.category && business._id !== currentBusiness._id,
   );
-  const businessPath =
-    similarBusiness && similarBusiness.length > 0
-      ? generatePath(ROUTES.BUSINESS_ID, { id: similarBusiness[0]._id })
-      : '#';
 
   return (
     <>
@@ -21,9 +18,9 @@ const SimilarBusiness: React.FC = () => {
       <div className={styles.similarContainer}>
         {similarBusiness?.map((simBusiness) => (
           <div className={styles.similarBusiness} key={simBusiness._id}>
-            <img className={styles.businessImg} src={simBusiness.imageUrls[0]} alt={simBusiness.name}></img>
+            <img className={styles.businessImg} src={simBusiness.imageUrls[0]} alt={simBusiness.name} />
             <div className={styles.detailsContainer}>
-              <Link className={styles.similarName} to={businessPath}>
+              <Link className={styles.similarName} to={generatePath(ROUTES.BUSINESS_ID, { id: simBusiness._id })}>
                 {simBusiness.name}
               </Link>
               <p className={styles.contactPerson}>{simBusiness.contactPerson}</p>

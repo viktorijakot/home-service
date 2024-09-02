@@ -1,6 +1,6 @@
 import { fetchBusinessById, fetchBusinesses } from '@/api/businessesApi';
 import { useQuery } from '@tanstack/react-query';
-import { Business } from '../types/businesses';
+import { Business } from '@/types/businesses';
 import { useParams } from 'react-router-dom';
 
 export const BUSINESS_KEY = 'BUSINESS';
@@ -19,11 +19,12 @@ export const useBusinessById = (businessId: string) => {
   });
 };
 
-const useCurrentBusiness = () => {
+export const useBusiness = () => {
   const { id } = useParams<{ id: string }>();
-  const { data } = useBusinessById(id!);
-
-  return { currentBusiness: data };
+  return useQuery<Business>({
+    queryKey: [BUSINESS_KEY, id],
+    queryFn: () => fetchBusinessById(id!),
+  });
 };
 
-export default useCurrentBusiness;
+export default useBusiness;
