@@ -6,8 +6,8 @@ import NotSignedLayout from "../layouts/NotSignedLayout";
 import LoginRegisterPage from "../pages/LoginRegisterPage/LoginRegisterPage";
 import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 import { ROUTES } from "./Routes";
+import UserBookingsPage from "@/pages/UserBookingsPage/UserBookingsPage";
 
-// Define navigation data separately
 const navLinks = [
   {
     path: ROUTES.BASE,
@@ -44,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: ROUTES.SEARCH_CATEGORY,
         element: <CategoriesPage />,
+      },
+      {
+        path: ROUTES.MY_BOOKINGS,
+        element: <UserBookingsPage />,
       },
     ],
   },
