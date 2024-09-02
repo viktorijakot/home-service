@@ -1,12 +1,12 @@
-import PageTitle from '@/components/others/PageTitle/PageTitle';
-import styles from './homePage.module.css';
-import Search from '@/assets/icons/search.svg';
-import TextField from '@/components/common/TextField/TextField';
-import Button from '@/components/common/Button/Button';
-import CategoryCard from '@/components/others/CategoryCard/CategoryCard';
-import BusinessesCard from '@/components/others/BusinessesCard/BusinessesCard';
-import { useBusinesses } from '@/hooks/useBusinesses';
-import { useCategories } from '@/hooks/useCategories';
+import PageTitle from "@/components/others/PageTitle/PageTitle";
+import styles from "./homePage.module.css";
+import Search from "@/assets/icons/search.svg";
+import TextField from "@/components/common/TextField/TextField";
+import Button from "@/components/common/Button/Button";
+import CategoryCard from "@/components/others/CategoryCard/CategoryCard";
+import BusinessesCard from "@/components/others/BusinessesCard/BusinessesCard";
+import { useBusinesses } from "@/hooks/useBusinesses";
+import { useCategories } from "@/hooks/useCategories";
 
 const HomePage = () => {
   const { data } = useBusinesses();
@@ -16,9 +16,9 @@ const HomePage = () => {
   return (
     <div className={styles.container}>
       <PageTitle
-        headlinePartOne={'Find Home'}
-        headlinePartTwo={'Service/Repair'}
-        headlinePartThree={'Near You'}
+        headlinePartOne={"Find Home"}
+        headlinePartTwo={"Service/Repair"}
+        headlinePartThree={"Near You"}
         text="Explore Best Home Service & Repair near you"
       />
       <div className={styles.searchContainer}>

@@ -1,8 +1,8 @@
-import { TimeSlot } from '@/types/calendar';
-import { format, isBefore } from 'date-fns';
-import styles from './timeSlotPicker.module.css';
-import classNames from 'classnames/bind';
-import { useState } from 'react';
+import { TimeSlot } from "@/types/calendar";
+import { format, isBefore } from "date-fns";
+import styles from "./timeSlotPicker.module.css";
+import classNames from "classnames/bind";
+import { useState } from "react";
 
 const cx = classNames.bind(styles);
 
@@ -27,11 +27,11 @@ const TimeSlotPicker = ({ slots, onSlotSelect }: TimeSlotPickerProps) => {
         return (
           <button
             key={new Date(slot.startTime).getTime()}
-            className={cx('timeSlot', { booked: slot.isBooked, active: slot === activeSlot, disabled: isPast })}
+            className={cx("timeSlot", { booked: slot.isBooked, active: slot === activeSlot, disabled: isPast })}
             onClick={() => handleClick(slot)}
             disabled={slot.isBooked || isPast}
           >
-            {format(new Date(slot.startTime), 'h:mm a')}
+            {format(new Date(slot.startTime), "h:mm a")}
           </button>
         );
       })}

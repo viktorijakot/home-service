@@ -1,10 +1,10 @@
-import styles from './businessesCard.module.css';
-import { generatePath, useNavigate } from 'react-router-dom';
-import classNames from 'classnames/bind';
-import { MouseEvent } from 'react';
-import { ROUTES } from '@/router/Routes';
-import useLocalStorage from '@/hooks/useLocalStorage';
-import { Business } from '@/types/businesses';
+import styles from "./businessesCard.module.css";
+import { generatePath, useNavigate } from "react-router-dom";
+import classNames from "classnames/bind";
+import { MouseEvent } from "react";
+import { ROUTES } from "@/router/Routes";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { Business } from "@/types/businesses";
 
 const cx = classNames.bind(styles);
 
@@ -21,7 +21,7 @@ const BusinessesCard = ({ business, children }: BusinessesCardProps) => {
     category,
   });
 
-  const [businessIds, setBusinessIds] = useLocalStorage<string[]>('businessIds', []);
+  const [businessIds, setBusinessIds] = useLocalStorage<string[]>("businessIds", []);
 
   const handleHeartClick = (e: MouseEvent<HTMLSpanElement>) => {
     e.stopPropagation();
@@ -50,7 +50,7 @@ const BusinessesCard = ({ business, children }: BusinessesCardProps) => {
         <p className={styles.address}>{address}</p>
         <div className={styles.buttons} onClick={handleChildClick}>
           {children}
-          <span className={cx('heart', { favorited: isFavorited })} onClick={handleHeartClick}>
+          <span className={cx("heart", { favorited: isFavorited })} onClick={handleHeartClick}>
             ❤︎
           </span>
         </div>

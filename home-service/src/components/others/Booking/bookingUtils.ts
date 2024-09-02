@@ -1,5 +1,5 @@
-import { TimeSlot } from '@/types/calendar';
-import { addMinutes, startOfDay } from 'date-fns';
+import { TimeSlot } from "@/types/calendar";
+import { addMinutes, startOfDay } from "date-fns";
 
 export const createMockTimeSlots = (date: Date): TimeSlot[] => {
   const slots: TimeSlot[] = [];

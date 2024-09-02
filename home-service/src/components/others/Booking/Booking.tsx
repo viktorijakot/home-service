@@ -1,24 +1,24 @@
-import { useContext, useState, useEffect } from 'react';
-import { TimeSlot } from '@/types/calendar';
-import DatePicker from '../DatePicker/DatePicker';
-import TimeSlotPicker from '../TimeSlotPicker/TimeSlotPicker';
-import styles from './booking.module.css';
-import Button from '@/components/common/Button/Button';
-import { createMockTimeSlots } from './bookingUtils';
-import { useBookingRequest } from '@/hooks/useBookingRequest';
-import { generatePath, useNavigate } from 'react-router-dom';
-import { UserContext } from '@/context/UserContext';
-import { Status } from '@/types/booking';
-import { Business } from '@/types/businesses';
-import { ErrorResponse } from '@/types/error';
-import { useBookings } from '@/hooks/useBookings';
-import { ROUTES } from '@/router/Routes';
+import { useContext, useState, useEffect } from "react";
+import { TimeSlot } from "@/types/calendar";
+import DatePicker from "../DatePicker/DatePicker";
+import TimeSlotPicker from "../TimeSlotPicker/TimeSlotPicker";
+import styles from "./booking.module.css";
+import Button from "@/components/common/Button/Button";
+import { createMockTimeSlots } from "./bookingUtils";
+import { useBookingRequest } from "@/hooks/useBookingRequest";
+import { generatePath, useNavigate } from "react-router-dom";
+import { UserContext } from "@/context/UserContext";
+import { Status } from "@/types/booking";
+import { Business } from "@/types/businesses";
+import { ErrorResponse } from "@/types/error";
+import { useBookings } from "@/hooks/useBookings";
+import { ROUTES } from "@/router/Routes";
 
-const Booking = ({ id }: { id: Business['_id'] }) => {
+const Booking = ({ id }: { id: Business["_id"] }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [timeSlots, setTimeSlots] = useState<TimeSlot[]>([]);
   const [selectedSlot, setSelectedSlot] = useState<TimeSlot | null>(null);
-  const [error, setError] = useState<string>('');
+  const [error, setError] = useState<string>("");
   const { mutateAsync: postBooking } = useBookingRequest();
   const navigate = useNavigate();
   const { user } = useContext(UserContext);
@@ -38,7 +38,7 @@ const Booking = ({ id }: { id: Business['_id'] }) => {
         (booking) =>
           new Date(booking.date).toDateString() === date.toDateString() &&
           new Date(booking.time).getTime() === slot.startTime.getTime() &&
-          (booking.status === 'pending' || booking.status === 'confirmed'),
+          (booking.status === "pending" || booking.status === "confirmed"),
       );
 
       return { ...slot, isBooked };
@@ -60,7 +60,7 @@ const Booking = ({ id }: { id: Business['_id'] }) => {
       return;
     }
 
-    const status: Status = 'pending';
+    const status: Status = "pending";
 
     const newBooking = {
       businessId: id,
@@ -75,7 +75,7 @@ const Booking = ({ id }: { id: Business['_id'] }) => {
       await postBooking(newBooking);
     } catch (error) {
       const errorMessage = error as ErrorResponse;
-      setError(errorMessage?.response?.data.message ?? '');
+      setError(errorMessage?.response?.data.message ?? "");
     }
   };
 

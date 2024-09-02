@@ -1,9 +1,9 @@
-import { Business } from './businesses';
+import { Business } from "./businesses";
 
-export type Status = 'confirmed' | 'pending' | 'cancelled';
+export type Status = "confirmed" | "pending" | "cancelled";
 
 export interface BookingRequest {
-  businessId: Business['_id'];
+  businessId: Business["_id"];
   date: Date;
   time: string;
   userEmail: string;

@@ -1,6 +1,6 @@
-import useLocalStorage from '@/hooks/useLocalStorage';
-import { LoginRequest, LoginResponse, User } from '@/types/user';
-import { createContext, useMemo } from 'react';
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { LoginRequest, LoginResponse, User } from "@/types/user";
+import { createContext, useMemo } from "react";
 
 interface UserProviderProps {
   children: React.ReactNode;
@@ -19,8 +19,8 @@ const UserContext = createContext<{
 });
 
 const UserProvider = ({ children }: UserProviderProps) => {
-  const [user, setUser] = useLocalStorage<User | null>('user', null);
-  const [, setToken] = useLocalStorage<string | null>('token', null);
+  const [user, setUser] = useLocalStorage<User | null>("user", null);
+  const [, setToken] = useLocalStorage<string | null>("token", null);
 
   const isLoggedIn = !!user;
 
