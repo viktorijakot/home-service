@@ -1,8 +1,8 @@
 export const tabsData = [
   {
-    label: 'Booked',
+    label: "Booked",
   },
   {
-    label: 'Completed',
+    label: "Completed",
   },
 ];

@@ -1,6 +1,6 @@
-import classNames from 'classnames/bind';
-import { ReactNode } from 'react';
-import styles from './tabs.module.css';
+import classNames from "classnames/bind";
+import { ReactNode } from "react";
+import styles from "./tabs.module.css";
 
 const cx = classNames.bind(styles);
 
@@ -22,12 +22,12 @@ const Tabs = ({ tabsData, selectedTab, setSelectedTab, children }: TabsProps) =>
 
   return (
     <>
-      <ul className={cx('container')}>
+      <ul className={cx("container")}>
         {tabsData &&
           tabsData.map(({ label }) => (
             <li key={label} className={styles.tabBox}>
               <button
-                className={cx('tab', { selected: selectedTab === label })}
+                className={cx("tab", { selected: selectedTab === label })}
                 onClick={() => handleClick(label)}
                 type="button"
               >

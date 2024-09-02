@@ -1,8 +1,8 @@
-import { Booking } from '@/types/bookings';
-import { Business } from '@/types/businesses';
-import { format } from 'date-fns';
-import styles from './bookingCard.module.css';
-import classNames from 'classnames/bind';
+import { Booking } from "@/types/bookings";
+import { Business } from "@/types/businesses";
+import { format } from "date-fns";
+import styles from "./bookingCard.module.css";
+import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
@@ -20,24 +20,24 @@ const BookingCard = ({ business, booking }: BookingCardProps) => {
       <img className={styles.image} src={images[0].url} alt={name} />
       <div className={styles.infoContainer}>
         <h4>{name}</h4>
-        <p className={cx('contactPerson', 'infoDisplayed')}>
+        <p className={cx("contactPerson", "infoDisplayed")}>
           <img src="../src/assets/icons/user.png" />
           {contactPerson}
         </p>
-        <p className={cx('infoDisplayed')}>
+        <p className={cx("infoDisplayed")}>
           <img src="../src/assets/icons/location.png" />
           {address}
         </p>
-        <p className={cx('infoDisplayed')}>
+        <p className={cx("infoDisplayed")}>
           <img src="../src/assets/icons/calendar.png" />
           <span>
-            Service on: <b>{format(new Date(date), 'dd-MMMM-yyyy')}</b>
+            Service on: <b>{format(new Date(date), "dd-MMMM-yyyy")}</b>
           </span>
         </p>
-        <p className={cx('infoDisplayed')}>
+        <p className={cx("infoDisplayed")}>
           <img src="../src/assets/icons/clock.png" />
           <span>
-            Service on: <b>{format(new Date(time), 'hh:mm a')}</b>
+            Service on: <b>{format(new Date(time), "hh:mm a")}</b>
           </span>
         </p>
       </div>
