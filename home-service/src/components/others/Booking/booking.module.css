@@ -1,0 +1,33 @@
+.bookingContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
+  position: relative;
+}
+
+.closeButton {
+  border: none;
+  background-color: var(--color-white);
+  color: var(--color-grey-tertiary);
+  cursor: pointer;
+  font-size: var(--font-size-s);
+  margin-left: auto;
+  padding: var(--spacing-xxxxs) var(--spacing-xxs);
+  width: max-content;
+
+  &:hover {
+    border-radius: var(--border-radius-s);
+    outline: 1px solid var(--color-grey-tertiary);
+  }
+}
+
+.bookButtonContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xxs);
+}
+
+.error {
+    color: var(--color-error-red);
+}

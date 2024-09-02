@@ -1,0 +1,17 @@
+.container {
+  padding: var(--spacing-l);
+}
+
+.cardsContainer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: space-between;
+  justify-items: center;
+  list-style: none;
+  gap: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
+}
+
+.message {
+  margin-top: var(--spacing-xs);
+}

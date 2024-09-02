@@ -5,4 +5,6 @@ export const ROUTES = {
   LOGIN: "/login",
   REGISTER: "/register",
   SEARCH_CATEGORY: "/search/:category",
+  MY_BOOKINGS: "/my-bookings",
+  SEARCH_BUSINESS: "/business/:id",
 };
