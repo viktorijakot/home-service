@@ -6,12 +6,13 @@ import styles from './booking.module.css';
 import Button from '@/components/common/Button/Button';
 import { createMockTimeSlots } from './bookingUtils';
 import { useBookingRequest } from '@/hooks/useBookingRequest';
-import { useNavigate } from 'react-router-dom';
+import { generatePath, useNavigate } from 'react-router-dom';
 import { UserContext } from '@/context/UserContext';
 import { Status } from '@/types/booking';
 import { Business } from '@/types/businesses';
 import { ErrorResponse } from '@/types/error';
 import { useBookings } from '@/hooks/useBookings';
+import { ROUTES } from '@/router/Routes';
 
 const Booking = ({ id }: { id: Business['_id'] }) => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
@@ -78,10 +79,14 @@ const Booking = ({ id }: { id: Business['_id'] }) => {
     }
   };
 
+  const businessPath = generatePath(ROUTES.SEARCH_BUSINESS, {
+    id,
+  });
+
   return (
     <div className={styles.bookingContainer}>
-      <button type="button" className={styles.closeButton} onClick={() => navigate(`/business/${id}`)}>
-        x {/* Close button, navigate to single page later */}
+      <button type="button" className={styles.closeButton} onClick={() => navigate(businessPath)}>
+        x
       </button>
       <h3>Book a Service</h3>
       <p>Select Date and Time slot to book a service</p>
