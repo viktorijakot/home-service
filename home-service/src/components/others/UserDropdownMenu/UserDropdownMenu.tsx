@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import styles from './userDropdownMenu.module.css';
-import classNames from 'classnames/bind';
+import { useEffect, useRef } from "react";
+import styles from "./userDropdownMenu.module.css";
+import classNames from "classnames/bind";
 
 const cx = classNames.bind(styles);
 
@@ -23,16 +23,16 @@ const UserSettingsDropDown = ({ isVisible, onClose, buttons }: UserSettingsDropD
     const handleOutsideClick = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
 
-      if (dropDownRef.current && target.getAttribute('data-button') === 'settingDropDown') {
+      if (dropDownRef.current && target.getAttribute("data-button") === "settingDropDown") {
         return;
       }
       if (dropDownRef.current && !(dropDownRef.current as HTMLElement).contains(target)) {
         onClose();
       }
     };
-    document.addEventListener('mousedown', handleOutsideClick);
+    document.addEventListener("mousedown", handleOutsideClick);
     return () => {
-      document.removeEventListener('mousedown', handleOutsideClick);
+      document.removeEventListener("mousedown", handleOutsideClick);
     };
   }, [onClose]);
 
