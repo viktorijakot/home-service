@@ -49,6 +49,10 @@ const router = createBrowserRouter([
         path: ROUTES.MY_BOOKINGS,
         element: <UserBookingsPage />,
       },
+      {
+        path: ROUTES.SEARCH_BUSINESS,
+        element: <>Bussiness</>,
+      },
     ],
   },
 ]);

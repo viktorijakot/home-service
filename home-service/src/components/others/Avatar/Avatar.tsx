@@ -1,9 +1,9 @@
-import { UserContext } from '@/context/UserContext';
-import styles from './avatar.module.css';
-import { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '@/router/Routes';
-import Button from '@/components/common/Button/Button';
+import { UserContext } from "@/context/UserContext";
+import styles from "./avatar.module.css";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ROUTES } from "@/router/Routes";
+import Button from "@/components/common/Button/Button";
 
 interface AvatarProps {
   children: React.ReactNode;

@@ -1,13 +1,12 @@
 import { fetchBookings, fetchUserBookings } from "@/api/bookingsApi";
 import { useQuery } from "@tanstack/react-query";
-import useLocalStorage from "./useLocalStorage";
 
 export const BOOKINGS_KEY = "BOOKINGS";
 
 export const useBookings = () => {
   return useQuery({
     queryKey: [BOOKINGS_KEY],
-    queryFn: () => fetchBookings,
+    queryFn: fetchBookings,
   });
 };
 
