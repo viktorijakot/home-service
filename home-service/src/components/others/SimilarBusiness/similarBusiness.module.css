@@ -1,51 +1,41 @@
 .title {
-    margin-top: 1.5rem;
-  }
-  
-  .similarContainer {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .similarBusiness {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    font-size: 0.5rem;
-    padding: 1rem 0.5rem;
-  }
-  
-  .businessImg {
-    width: 10rem;
-    border-radius: 10%;
-    object-fit: contain;
-  }
-  
-  .detailsContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.9rem;
-    font-size: 0.85rem;
-    color: #7c7878;
-  }
-  
-  .similarName {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: --color-purple-primary #8056eb;
-  }
-  
-  .contactPerson {
-    color: --color-purple-primary #8056eb;
-  }
-  
-  @media only screen and (min-width: 768px) {
-    .title {
-      font-size: 1.3rem;
-    }
-  
-    .detailsContainer {
-      font-size: 1rem;
-    }
-  }
-  
+  margin: var(--spacing-xs) 0 var(--spacing-xs) 0;
+}
+
+.similarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  width: 300px;
+  height: 300px;
+}
+
+.similarBusiness {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.businessImg {
+  border-radius: var(--border-radius-m);
+  height: 150px;
+  object-fit: cover;
+  width: 40%;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxxs);
+  color: var(--color-grey-tertiary);
+}
+
+.similarName {
+  color: var(--color-black-primary);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-m);
+  text-decoration: none;
+}
+
+.contactPerson {
+  color: var(--color-purple-primary);
+}
