@@ -25,14 +25,20 @@ const UserSettingsDropDown = ({ isVisible, onClose }: UserSettingsDropDownProps)
       ref={dropDownRef}
       role="menu"
       aria-label="settings menu"
-      tabIndex={0}
-      onClick={onClose}
-      onKeyDown={onClose}
       className={cx({ dropDownCotainer: isVisible }, { hidden: !isVisible })}
     >
       {getUserDropdownButtons(navigate, logout).map(({ label, onClick }) => (
         <li key={label}>
-          <button className={styles.button} type="button" aria-label={label} role="menuitem" onClick={onClick}>
+          <button
+            className={styles.button}
+            type="button"
+            aria-label={label}
+            role="menuitem"
+            onClick={() => {
+              onClick();
+              onClose();
+            }}
+          >
             {label}
           </button>
         </li>
