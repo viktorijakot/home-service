@@ -3,7 +3,6 @@ interface Image {
 }
 
 export interface Business {
-  imageUrls: any;
   _id: string;
   name: string;
   about?: string;

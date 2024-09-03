@@ -1,0 +1,32 @@
+.timeSlot {
+  border: 1px solid var(--color-grey-tertiary);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-m);
+  cursor: pointer;
+  padding: var(--spacing-xxxxs);
+  width: 80px;
+
+  &:hover {
+    background-color: var(--color-grey-light);
+  }
+
+  &.active {
+    background-color: var(--color-grey-light);
+  }
+
+  &.booked {
+    background-color: var(--color-error-red);
+    cursor: not-allowed;
+  }
+
+  &.disabled {
+    background-color: var(--color-white);
+    cursor: not-allowed;
+  }
+}
+
+.timeSlotContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xxxs);
+}

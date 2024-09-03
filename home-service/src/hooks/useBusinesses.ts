@@ -1,9 +1,9 @@
-import { fetchBusinessById, fetchBusinesses } from '@/api/businessesApi';
-import { useQuery } from '@tanstack/react-query';
-import { Business } from '@/types/businesses';
-import { useParams } from 'react-router-dom';
+import { fetchBusinessById, fetchBusinesses } from "@/api/businessesApi";
+import { useQuery } from "@tanstack/react-query";
+import { Business } from "@/types/businesses";
+import { useParams } from "react-router-dom";
 
-export const BUSINESS_KEY = 'BUSINESS';
+export const BUSINESS_KEY = "BUSINESS";
 
 export const useBusinesses = () => {
   return useQuery({
@@ -12,7 +12,7 @@ export const useBusinesses = () => {
   });
 };
 
-export const useBusinessById = (businessId: Business['_id']) => {
+export const useBusinessById = (businessId: Business["_id"]) => {
   return useQuery<Business>({
     queryKey: [BUSINESS_KEY, businessId],
     queryFn: () => fetchBusinessById(businessId),

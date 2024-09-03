@@ -1,9 +1,10 @@
 import express from "express";
 import Booking from "../models/Booking";
+import authMiddleware from "../middlewares/authMiddleware";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   try {
     const newBooking = new Booking(req.body);
     await newBooking.save();
@@ -16,7 +17,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.get("/", async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
   try {
     const bookings = await Booking.find();
     res.json(bookings);
@@ -27,7 +28,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/user/:email", async (req, res) => {
+router.get("/user/:email", authMiddleware, async (req, res) => {
   try {
     const userBookings = await Booking.find({ userEmail: req.params.email });
     res.json(userBookings);

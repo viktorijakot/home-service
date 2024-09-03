@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
-import styles from './register.module.css';
-import { ROUTES } from '@/router/Routes';
-import Button from '@/components/common/Button/Button';
-import { RegisterUser } from '@/types/user';
-import { Formik, Form } from 'formik';
-import { registerInitialValus, reigsterValidationSchema } from '../const';
-import FormikInput from '@/components/common/FormikInput/FormikInput';
-import { ErrorResponse } from '@/types/error';
-import { useRegisterUser } from '@/hooks/useRegisterUser';
+import { useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
+import styles from "./register.module.css";
+import { ROUTES } from "@/router/Routes";
+import Button from "@/components/common/Button/Button";
+import { RegisterUser } from "@/types/user";
+import { Formik, Form } from "formik";
+import { registerInitialValus, reigsterValidationSchema } from "../const";
+import FormikInput from "@/components/common/FormikInput/FormikInput";
+import { ErrorResponse } from "@/types/error";
+import { useRegisterUser } from "@/hooks/useRegisterUser";
 
 const Register = () => {
   const { mutateAsync: registerUser } = useRegisterUser();
   const navigate = useNavigate();
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleSubmit = async (formValues: RegisterUser) => {
     try {
@@ -22,7 +22,7 @@ const Register = () => {
     } catch (error) {
       const errorMessage = error as ErrorResponse;
       console.log(errorMessage);
-      setError(errorMessage?.response?.data.message ?? '');
+      setError(errorMessage?.response?.data.message ?? "");
     }
   };
 

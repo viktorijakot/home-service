@@ -1,18 +1,15 @@
-import PageTitle from '@/components/others/PageTitle/PageTitle';
-import styles from './homePage.module.css';
-import Search from '@/assets/icons/search.svg';
-import TextField from '@/components/common/TextField/TextField';
-import Button from '@/components/common/Button/Button';
-import CategoryCard from '@/components/others/CategoryCard/CategoryCard';
-import BusinessesCard from '@/components/others/BusinessesCard/BusinessesCard';
-import { useEffect, useState } from 'react';
-import { fetchCategories } from '@/api/categoriesApi';
-import { Category } from '@/types/categories';
-import { useBusinesses } from '@/hooks/useBusinesses';
-import { useCategories } from '@/hooks/useCategories';
-import { generatePath, useNavigate } from 'react-router-dom';
-import { ROUTES } from '@/router/Routes';
-import { Business } from '@/types/businesses';
+import PageTitle from "@/components/others/PageTitle/PageTitle";
+import styles from "./homePage.module.css";
+import Search from "@/assets/icons/search.svg";
+import TextField from "@/components/common/TextField/TextField";
+import Button from "@/components/common/Button/Button";
+import CategoryCard from "@/components/others/CategoryCard/CategoryCard";
+import BusinessesCard from "@/components/others/BusinessesCard/BusinessesCard";
+import { useBusinesses } from "@/hooks/useBusinesses";
+import { useCategories } from "@/hooks/useCategories";
+import { generatePath, useNavigate } from "react-router-dom";
+import { ROUTES } from "@/router/Routes";
+import { Business } from "@/types/businesses";
 
 const HomePage = () => {
   const { data } = useBusinesses();
@@ -20,7 +17,7 @@ const HomePage = () => {
   const { data: categories } = useCategories();
   const navigate = useNavigate();
 
-  const handleClick = (id: Business['_id']) => {
+  const handleClick = (id: Business["_id"]) => {
     const businessPath = generatePath(ROUTES.BUSINESSES_ID, {
       id,
     });
@@ -30,9 +27,9 @@ const HomePage = () => {
   return (
     <div className={styles.container}>
       <PageTitle
-        headlinePartOne={'Find Home'}
-        headlinePartTwo={'Service/Repair'}
-        headlinePartThree={'Near You'}
+        headlinePartOne={"Find Home"}
+        headlinePartTwo={"Service/Repair"}
+        headlinePartThree={"Near You"}
         text="Explore Best Home Service & Repair near you"
       />
       <div className={styles.searchContainer}>
