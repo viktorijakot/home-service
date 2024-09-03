@@ -1,25 +1,64 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-l);
+  position: relative;
+
+  &.shadow {
+  }
+}
+
+.leftContainer {
+  width: 60%;
+}
+
+.rightContainer {
+  width: max-content;
+}
+
+.availabilityContainer {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-l);
+}
+
+.contactPerson {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-xxxs);
+  color: var(--color-purple-primary);
+}
+
+.availability {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-xxxs);
+  color: var(--color-grey-tertiary);
+}
+
 .buttonContainer {
   margin: 1rem 0;
   text-align: center;
 }
 
-.button {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+.icon {
+  font-size: var(--font-size-xm);
+  margin-right: var(--spacing-xxs);
 }
 
-@media only screen and (min-width: 768px) {
-  .container {
-    display: flex;
-  }
+.shareIcon {
+  color: var(--color-white);
+  font-size: var(--font-size-m);
+}
 
-  .infoContainer {
-    margin-right: 10rem;
-  }
+.iconClock {
+  color: var(--color-grey-tertiary);
+  font-size: var(--font-size-m);
+}
 
-  .button {
-    justify-content: center;
-    width: 100%;
-  }
+.iconUser {
+  color: var(--color-purple-primary);
+  font-size: var(--font-size-m);
 }
