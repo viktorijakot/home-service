@@ -1,0 +1,30 @@
+.dropDownCotainer {
+  align-items: start;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-s);
+  box-shadow: #00000026 2px 2px 2.6px 2.6px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  list-style: none;
+  position: absolute;
+  right: 25px;
+  top: 85px;
+  padding: var(--spacing-xxxs) var(--spacing-s);
+}
+
+.hidden {
+  display: none;
+}
+
+.button {
+  align-items: center;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+  font-size: var(--title-font-size-s);
+}
+
+.button:hover {
+  font-weight: var(--font-weight-m);
+}
