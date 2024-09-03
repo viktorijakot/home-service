@@ -1,8 +1,8 @@
-import { Booking } from "@/types/bookings";
 import { Business } from "@/types/businesses";
 import { format } from "date-fns";
 import styles from "./bookingCard.module.css";
 import classNames from "classnames/bind";
+import { Booking } from "@/types/booking";
 
 const cx = classNames.bind(styles);
 
@@ -12,12 +12,12 @@ interface BookingCardProps {
 }
 
 const BookingCard = ({ business, booking }: BookingCardProps) => {
-  const { images, contactPerson, address, name } = business;
+  const { imageUrls, contactPerson, address, name } = business;
   const { date, time } = booking;
 
   return (
     <div className={styles.container}>
-      <img className={styles.image} src={images[0].url} alt={name} />
+      <img className={styles.image} src={imageUrls[0]} alt={name} />
       <div className={styles.infoContainer}>
         <h4>{name}</h4>
         <p className={cx("contactPerson", "infoDisplayed")}>
