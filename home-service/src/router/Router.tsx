@@ -1,11 +1,3 @@
-import { createBrowserRouter } from "react-router-dom";
-import HomePage from "../pages/HomePage/HomePage";
-import ServicesPage from "../pages/ServicesPage/ServicesPage";
-import AboutUsPage from "../pages/AboutUsPage/AboutUsPage";
-import NotSignedLayout from "../layouts/NotSignedLayout";
-import LoginRegisterPage from "../pages/LoginRegisterPage/LoginRegisterPage";
-import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
-import { ROUTES } from "./Routes";
 import UserBookingsPage from "@/pages/UserBookingsPage/UserBookingsPage";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
@@ -41,7 +33,7 @@ const router = createBrowserRouter([
     element: <NotSignedLayout />,
     errorElement: <>404 Error</>,
     children: [
-      ...navLinks.map(({ path, element }) => ({ path, element })), // Spread the routes without navLinkInfo
+      ...navLinks.map(({ path, element }) => ({ path, element })),
       {
         path: ROUTES.LOGIN,
         element: <LoginRegisterPage />,
