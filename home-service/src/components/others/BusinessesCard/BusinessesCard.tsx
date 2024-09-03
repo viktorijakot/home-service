@@ -14,7 +14,7 @@ interface BusinessesCardProps {
 }
 
 const BusinessesCard = ({ business, children }: BusinessesCardProps) => {
-  const { images, category, name, contactPerson, address, _id } = business;
+  const { imageUrls, category, name, contactPerson, address, _id } = business;
   const navigate = useNavigate();
 
   const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, {
@@ -42,7 +42,7 @@ const BusinessesCard = ({ business, children }: BusinessesCardProps) => {
 
   return (
     <div className={styles.container} onClick={() => navigate(categoryPath)}>
-      <img className={styles.image} src={images[0].url} alt={category} />
+      <img className={styles.image} src={imageUrls[0]} alt={category} />
       <div className={styles.infoContainer}>
         <span className={styles.category}>{category}</span>
         <h3 className={styles.name}>{name}</h3>

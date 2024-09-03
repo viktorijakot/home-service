@@ -1,7 +1,3 @@
-interface Image {
-  url: string;
-}
-
 export interface Business {
   _id: string;
   name: string;
@@ -10,5 +6,5 @@ export interface Business {
   category: string;
   contactPerson: string;
   email: string;
-  images: Image[];
+  imageUrls: string[];
 }
