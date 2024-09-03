@@ -1,40 +1,46 @@
 .button {
-    align-items: center;
-    background-color: var(--color-purple-primary);
-    border: none;
-    cursor: pointer;
-    color: var(--color-white);
-    display: flex;
-    justify-content: center;
-    font-size: var(--font-size-s);
+  align-items: center;
+  background-color: var(--color-purple-primary);
+  border: none;
+  cursor: pointer;
+  color: var(--color-white);
+  display: flex;
+  justify-content: center;
+  font-size: var(--font-size-s);
+  padding: var(--spacing-xxs) var(--spacing-xs);
+
+  &.fullWidth {
+    border-radius: var(--border-radius-s);
+    width: 100%;
+  }
+
+  &.rounded {
+    border-radius: var(--border-radius-s);
     max-width: max-content;
-    padding: var(--spacing-xxs) var(--spacing-xs);
+  }
 
-    &.rounded {
-        border-radius: var(--border-radius-s);
-    }
+  &.circle {
+    border-radius: 50%;
+    height: 4rem;
+    max-width: max-content;
+    width: 4rem;
+  }
 
-    &.circle {
-        border-radius: 50%;
-        height: 4rem;
-        width: 4rem;
-    }
-  
-    &:disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
 
-    &:hover {
-        background-color: var(--color-purple-secondary);
-    }
-    
-    &:active {
-        background-color: var(--color-purple-secondary);
-    }
-    
-    &:focus {
-        background-color: var(--color-purple-primary);
-        outline: -webkit-focus-ring-color auto 1px;
-    }
+  &:hover {
+    background-color: var(--color-purple-secondary);
+  }
+
+  &:active {
+    background-color: var(--color-purple-secondary);
+  }
+
+  &:focus {
+    background-color: var(--color-purple-primary);
+    outline: -webkit-focus-ring-color auto 1px;
+  }
 }
