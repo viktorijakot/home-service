@@ -1,4 +1,4 @@
-import styles from './BusinessInfoSection.module.scss';
+import styles from './BusinessInfoSection.module.css';
 interface BusinessInfoSectionProps {
   useBusiness: {
     about: string;
