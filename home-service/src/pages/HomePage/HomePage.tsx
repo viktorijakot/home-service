@@ -10,11 +10,22 @@ import { fetchCategories } from '@/api/categoriesApi';
 import { Category } from '@/types/categories';
 import { useBusinesses } from '@/hooks/useBusinesses';
 import { useCategories } from '@/hooks/useCategories';
+import { generatePath, useNavigate } from 'react-router-dom';
+import { ROUTES } from '@/router/Routes';
+import { Business } from '@/types/businesses';
 
 const HomePage = () => {
   const { data } = useBusinesses();
   const businesses = data ?? [];
   const { data: categories } = useCategories();
+  const navigate = useNavigate();
+
+  const handleClick = (id: Business['_id']) => {
+    const businessPath = generatePath(ROUTES.BUSINESSES_ID, {
+      id,
+    });
+    navigate(businessPath);
+  };
 
   return (
     <div className={styles.container}>
@@ -39,7 +50,7 @@ const HomePage = () => {
       <div className={styles.businessesList}>
         {businesses.map((business) => (
           <BusinessesCard key={business._id} business={business}>
-            <Button type="button" onClick={() => {}}>
+            <Button type="button" onClick={() => handleClick(business._id)}>
               Book now
             </Button>
           </BusinessesCard>

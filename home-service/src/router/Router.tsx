@@ -47,7 +47,7 @@ const router = createBrowserRouter([
         element: <CategoriesPage />,
       },
       {
-        path: ROUTES.BUSINESS_ID,
+        path: ROUTES.BUSINESSES_ID,
         element: <BusinessPage />,
       },
     ],

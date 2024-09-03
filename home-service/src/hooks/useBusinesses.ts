@@ -12,7 +12,7 @@ export const useBusinesses = () => {
   });
 };
 
-export const useBusinessById = (businessId: string) => {
+export const useBusinessById = (businessId: Business['_id']) => {
   return useQuery<Business>({
     queryKey: [BUSINESS_KEY, businessId],
     queryFn: () => fetchBusinessById(businessId),
