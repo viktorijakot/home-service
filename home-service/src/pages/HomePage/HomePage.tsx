@@ -10,12 +10,15 @@ import { useCategories } from "@/hooks/useCategories";
 import { generatePath, useNavigate } from "react-router-dom";
 import { ROUTES } from "@/router/Routes";
 import { Business } from "@/types/businesses";
+import Autocomplete from "@/components/others/Autocomplete/Autocomplete";
+import { MouseEvent, useMemo, useState } from "react";
 
 const HomePage = () => {
   const { data } = useBusinesses();
-  const businesses = data ?? [];
   const { data: categories } = useCategories();
   const navigate = useNavigate();
+  const [searchValue, setSearchValue] = useState("");
+  const businesses = data ?? [];
 
   const handleClick = (id: Business["_id"]) => {
     const businessPath = generatePath(ROUTES.BUSINESSES_ID, {
@@ -23,7 +26,22 @@ const HomePage = () => {
     });
     navigate(businessPath);
   };
+  const categoriesNames = categories?.map((category) => category.name);
 
+  const filteredAutocomplete = useMemo(
+    () =>
+      categoriesNames
+        ?.filter((data) => data.toLowerCase().includes(searchValue.trim().toLowerCase()))
+        .sort((a, b) => a.localeCompare(b)),
+    [categoriesNames, searchValue],
+  );
+
+  const handleSelect = (e: MouseEvent<HTMLButtonElement>, selected: string) => {
+    e.preventDefault();
+    setSearchValue(selected);
+  };
+
+  const categoryPath = generatePath(ROUTES.SEARCH_CATEGORY, { category: searchValue });
   return (
     <div className={styles.container}>
       <PageTitle
@@ -33,10 +51,29 @@ const HomePage = () => {
         text="Explore Best Home Service & Repair near you"
       />
       <div className={styles.searchContainer}>
-        <TextField type="text" name="search" id="search" placeholder="Search" shape="rounded" onChange={() => {}} />
-        <Button type="submit" shape="circle" onClick={() => {}}>
+        <TextField
+          type="text"
+          name="search"
+          id="search"
+          placeholder="Search"
+          shape="rounded"
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
+        />
+        <Button
+          type="submit"
+          shape="circle"
+          isDisabled={!categoriesNames?.includes(searchValue)}
+          onClick={() => {
+            navigate(categoryPath);
+            setSearchValue("");
+          }}
+        >
           <img src={Search} alt="search" />
         </Button>
+        {searchValue && filteredAutocomplete && filteredAutocomplete?.length !== 0 && (
+          <Autocomplete options={filteredAutocomplete} onClick={handleSelect} />
+        )}
       </div>
       <div className={styles.categoriesList}>
         {categories?.map(({ _id, name }) => (
