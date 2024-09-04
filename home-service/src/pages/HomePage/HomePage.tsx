@@ -76,9 +76,7 @@ const HomePage = () => {
         )}
       </div>
       <div className={styles.categoriesList}>
-        {categories?.map(({ _id, name }) => (
-          <CategoryCard key={_id} name={name} />
-        ))}
+        {categories?.map(({ _id, name }) => <CategoryCard key={_id} name={name} />)}
       </div>
       <h2 className={styles.secondTitle}>Popular businesses</h2>
       <div className={styles.businessesList}>

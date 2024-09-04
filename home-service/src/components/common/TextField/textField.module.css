@@ -2,7 +2,10 @@
   border: 2px solid var(--color-grey-quaternary);
   color: var(--color-black-primary);
   font-size: var(--font-size-s);
-  transition: box-shadow 0.1s ease-in, border 0.1s ease-in, background-color 0.1s ease-in;
+  transition:
+    box-shadow 0.1s ease-in,
+    border 0.1s ease-in,
+    background-color 0.1s ease-in;
   width: 100%;
   border-radius: var(--border-radius-xs);
   line-height: var(--font-line-height-s);

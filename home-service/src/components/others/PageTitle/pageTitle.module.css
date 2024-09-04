@@ -1,19 +1,19 @@
 .container {
-    padding-top: var(--spacing-s);
-    text-align: center;
+  padding-top: var(--spacing-s);
+  text-align: center;
 }
 
 .headline {
-    font-size: var(--font-size-l);
-    line-height: var(--font-line-height-l);
+  font-size: var(--font-size-l);
+  line-height: var(--font-line-height-l);
 }
 
 .partTwo {
-    color: var(--color-purple-primary);
+  color: var(--color-purple-primary);
 }
 
 .text {
-    color: var(--color-grey-tertiary);
-    font-size: var(--font-size-xm);
-    padding: var(--spacing-xxs);
+  color: var(--color-grey-tertiary);
+  font-size: var(--font-size-xm);
+  padding: var(--spacing-xxs);
 }

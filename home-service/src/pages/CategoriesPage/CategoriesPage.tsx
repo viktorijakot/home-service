@@ -28,9 +28,7 @@ const CategoriesPage = () => {
     <div className={styles.container}>
       <div className={styles.categories}>
         <h2 className={styles.titleCat}>Categories</h2>
-        {categories?.map(({ _id, name }) => (
-          <CategoryCard key={_id} name={name} shape="rectangle" />
-        ))}
+        {categories?.map(({ _id, name }) => <CategoryCard key={_id} name={name} shape="rectangle" />)}
       </div>
       <div>
         <h2 className={styles.title}>{category}</h2>
