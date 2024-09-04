@@ -1,5 +1,5 @@
 import styles from "./similarBusiness.module.css";
-import { generatePath, NavLink, useNavigate } from "react-router-dom";
+import { generatePath, NavLink } from "react-router-dom";
 import { useBusinesses } from "@/hooks/useBusinesses";
 import { ROUTES } from "@/router/Routes";
 import { Business } from "@/types/businesses";

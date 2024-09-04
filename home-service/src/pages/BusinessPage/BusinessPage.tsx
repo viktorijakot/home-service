@@ -29,6 +29,7 @@ const BusinessPage = () => {
   if (!business || isLoading || error) {
     return <div>Is loading...</div>;
   }
+
   return (
     <div className={cx("container", { shadow: isBookingOpen })}>
       <div className={styles.leftContainer}>

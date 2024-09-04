@@ -1,4 +1,4 @@
-import { Booking } from "@/types/bookings";
+import { Booking } from "@/types/booking";
 import { axiosInstance } from "./axiosConfig";
 
 export const fetchBookings = async (): Promise<Booking[]> => {

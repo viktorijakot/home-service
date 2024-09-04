@@ -1,5 +1,5 @@
 .container {
-    display: flex;
-    justify-content: center;
-    padding-top: var(--spacing-xxxl);
+  display: flex;
+  justify-content: center;
+  padding-top: var(--spacing-xxxl);
 }
