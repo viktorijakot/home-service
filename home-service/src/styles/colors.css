@@ -1,18 +1,18 @@
 :root {
-   --color-purple-primary: #8056eb;
-   --color-purple-secondary: #5b24e7;
-   --color-purple-tertiary: #f2eefd;
-   --color-purple-quaternary: #9977ef;
-   --color-purple-light: #beaaf5;
-   --color-purple-super-light: #f7f4fd;
-   --color-purple-slightly-light: #e5ddfb;
-   --color-white: #fff;
-   --color-grey-primary: #323232;
-   --color-grey-secondary: #f1f1f1;
-   --color-grey-tertiary: #a8a8a8;
-   --color-grey-quaternary: #dee1e2;
-   --color-grey-light: #e6e6e6;
-   --color-grey-bold: #ccc;
-   --color-black-primary: #0e0e10;
-   --color-error-red: #BA072D;
+  --color-purple-primary: #8056eb;
+  --color-purple-secondary: #5b24e7;
+  --color-purple-tertiary: #f2eefd;
+  --color-purple-quaternary: #9977ef;
+  --color-purple-light: #beaaf5;
+  --color-purple-super-light: #f7f4fd;
+  --color-purple-slightly-light: #e5ddfb;
+  --color-white: #fff;
+  --color-grey-primary: #323232;
+  --color-grey-secondary: #f1f1f1;
+  --color-grey-tertiary: #a8a8a8;
+  --color-grey-quaternary: #dee1e2;
+  --color-grey-light: #e6e6e6;
+  --color-grey-bold: #ccc;
+  --color-black-primary: #0e0e10;
+  --color-error-red: #ba072d;
 }

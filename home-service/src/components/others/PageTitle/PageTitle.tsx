@@ -6,17 +6,11 @@ interface PageTitleProps {
   headlinePartThree: string;
   text: string;
 }
-const PageTitle = ({
-  headlinePartOne,
-  headlinePartTwo,
-  headlinePartThree,
-  text,
-}: PageTitleProps) => {
+const PageTitle = ({ headlinePartOne, headlinePartTwo, headlinePartThree, text }: PageTitleProps) => {
   return (
     <div className={styles.container}>
       <h1 className={styles.headline}>
-        {headlinePartOne}{" "}
-        <span className={styles.partTwo}>{headlinePartTwo} </span>
+        {headlinePartOne} <span className={styles.partTwo}>{headlinePartTwo} </span>
         <br />
         {headlinePartThree}
       </h1>

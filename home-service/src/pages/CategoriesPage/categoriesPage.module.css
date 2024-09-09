@@ -1,27 +1,27 @@
 .container {
-    display: flex;
-    gap: var(--spacing-s);
-    padding: var(--spacing-l);
+  display: flex;
+  gap: var(--spacing-s);
+  padding: var(--spacing-l);
 }
 
 .categories {
-    width: 30%;
+  width: 30%;
 }
 
 .titleCat {
-    color: var(--color-purple-primary);
-    font-size: var(--font-size-mm);
-    margin-bottom: var(--spacing-s);
+  color: var(--color-purple-primary);
+  font-size: var(--font-size-mm);
+  margin-bottom: var(--spacing-s);
 }
 
 .title {
-    font-size: var(--font-size-xm);
-    margin-bottom: var(--spacing-s);
-    text-transform: capitalize;
+  font-size: var(--font-size-xm);
+  margin-bottom: var(--spacing-s);
+  text-transform: capitalize;
 }
 
 .businessesCardList {
-    display: grid;
-    gap: var(--spacing-xxs);
-    grid-template-columns: repeat(3,1fr);
+  display: grid;
+  gap: var(--spacing-xxs);
+  grid-template-columns: repeat(3, 1fr);
 }

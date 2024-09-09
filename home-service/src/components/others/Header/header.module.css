@@ -1,16 +1,16 @@
 .headerContainer {
-    border-bottom: 2px solid var( --color-grey-secondary);
-    display: flex;
-    justify-content: space-between;
-    padding: var(--spacing-s) var(--spacing-l);
+  border-bottom: 2px solid var(--color-grey-secondary);
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-s) var(--spacing-l);
 }
 
 .navigation {
-    align-items: center;
-    display: flex;
-    gap: var(--spacing-xs);
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-xs);
 }
 
 .logo {
-    padding-right: var(--spacing-xxxxs);
+  padding-right: var(--spacing-xxxxs);
 }

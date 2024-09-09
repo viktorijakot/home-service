@@ -1,0 +1,64 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  padding: var(--spacing-l);
+  position: relative;
+
+  &.shadow {
+  }
+}
+
+.leftContainer {
+  width: 60%;
+}
+
+.rightContainer {
+  width: max-content;
+}
+
+.availabilityContainer {
+  align-items: end;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-l);
+}
+
+.contactPerson {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-xxxs);
+  color: var(--color-purple-primary);
+}
+
+.availability {
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-xxxs);
+  color: var(--color-grey-tertiary);
+}
+
+.buttonContainer {
+  margin: 1rem 0;
+  text-align: center;
+}
+
+.icon {
+  font-size: var(--font-size-xm);
+  margin-right: var(--spacing-xxs);
+}
+
+.shareIcon {
+  color: var(--color-white);
+  font-size: var(--font-size-m);
+}
+
+.iconClock {
+  color: var(--color-grey-tertiary);
+  font-size: var(--font-size-m);
+}
+
+.iconUser {
+  color: var(--color-purple-primary);
+  font-size: var(--font-size-m);
+}

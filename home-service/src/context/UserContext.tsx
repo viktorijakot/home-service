@@ -1,5 +1,5 @@
 import useLocalStorage from "@/hooks/useLocalStorage";
-import { LoginRequest, LoginResponse, User } from "@/types/user";
+import { LoginResponse, User } from "@/types/user";
 import { createContext, useMemo } from "react";
 
 interface UserProviderProps {

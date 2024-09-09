@@ -1,8 +1,25 @@
+.overlay {
+  align-items: center;
+  background-color: rgba(204, 204, 204, 0.7);
+  display: flex;
+  height: 100%;
+  justify-content: right;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
 .bookingContainer {
+  background-color: var(--color-white);
   display: flex;
   flex-direction: column;
   gap: var(--spacing-xxs);
-  position: relative;
+  width: 400px;
+  height: 100%;
+  padding: var(--spacing-xxs);
+  position: absolute;
 }
 
 .closeButton {
@@ -22,12 +39,12 @@
 }
 
 .bookButtonContainer {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-xxs);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxs);
 }
 
 .error {
-    color: var(--color-error-red);
+  color: var(--color-error-red);
 }

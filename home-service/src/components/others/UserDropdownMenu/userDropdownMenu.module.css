@@ -11,6 +11,7 @@
   right: 25px;
   top: 85px;
   padding: var(--spacing-xxxs) var(--spacing-s);
+  z-index: 1;
 }
 
 .hidden {

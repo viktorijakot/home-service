@@ -7,5 +7,5 @@ export const loginUser = async (user: LoginRequest): Promise<LoginResponse> => {
 };
 
 export const registerUser = async (user: RegisterUser) => {
-  await axiosInstance.post(`/auth/register`, user); 
+  await axiosInstance.post(`/auth/register`, user);
 };

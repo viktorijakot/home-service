@@ -1,3 +1,4 @@
+import UserBookingsPage from "@/pages/UserBookingsPage/UserBookingsPage";
 import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage/HomePage";
 import ServicesPage from "../pages/ServicesPage/ServicesPage";
@@ -6,7 +7,7 @@ import NotSignedLayout from "../layouts/NotSignedLayout";
 import LoginRegisterPage from "../pages/LoginRegisterPage/LoginRegisterPage";
 import CategoriesPage from "../pages/CategoriesPage/CategoriesPage";
 import { ROUTES } from "./Routes";
-import UserBookingsPage from "@/pages/UserBookingsPage/UserBookingsPage";
+import BusinessPage from "@/pages/BusinessPage/BusinessPage";
 
 const navLinks = [
   {
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
     element: <NotSignedLayout />,
     errorElement: <>404 Error</>,
     children: [
-      ...navLinks.map(({ path, element }) => ({ path, element })), // Spread the routes without navLinkInfo
+      ...navLinks.map(({ path, element }) => ({ path, element })),
       {
         path: ROUTES.LOGIN,
         element: <LoginRegisterPage />,
@@ -50,8 +51,8 @@ const router = createBrowserRouter([
         element: <UserBookingsPage />,
       },
       {
-        path: ROUTES.SEARCH_BUSINESS,
-        element: <>Bussiness</>,
+        path: ROUTES.BUSINESSES_ID,
+        element: <BusinessPage />,
       },
     ],
   },

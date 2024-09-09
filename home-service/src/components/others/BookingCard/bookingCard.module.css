@@ -1,32 +1,32 @@
 .container {
-    border: 0.5px solid var(--color-grey-secondary);
-    border-radius: var(--border-radius-m);
-    color: var(--color-grey-primary);
-    display: flex;
-    height: 250px;
-    gap: var(--spacing-s);
-    padding: var(--spacing-xs);
+  border: 0.5px solid var(--color-grey-secondary);
+  border-radius: var(--border-radius-m);
+  color: var(--color-grey-primary);
+  display: flex;
+  height: 250px;
+  gap: var(--spacing-s);
+  padding: var(--spacing-xs);
 }
 
 .image {
-    border-radius: var(--border-radius-m);
-    height: 100%;
-    object-fit: cover;
-    width: 30%;
+  border-radius: var(--border-radius-m);
+  height: 100%;
+  object-fit: cover;
+  width: 30%;
 }
 
 .infoContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .contactPerson {
-    color: var(--color-purple-primary);
+  color: var(--color-purple-primary);
 }
 
 .infoDisplayed {
-    align-items: center;
-    display: flex;
-    gap: var(--spacing-xxs);
+  align-items: center;
+  display: flex;
+  gap: var(--spacing-xxs);
 }

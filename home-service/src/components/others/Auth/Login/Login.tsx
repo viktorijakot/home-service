@@ -1,21 +1,21 @@
-import styles from './login.module.css';
-import { NavLink, useNavigate } from 'react-router-dom';
-import { useContext, useState } from 'react';
-import Button from '@/components/common/Button/Button';
-import { UserContext } from '@/context/UserContext';
-import { ROUTES } from '@/router/Routes';
-import { LoginRequest } from '@/types/user';
-import { Form, Formik } from 'formik';
-import { loginInitialValues, loginValidationSchema } from '../const';
-import FormikInput from '@/components/common/FormikInput/FormikInput';
-import { useLoginUser } from '@/hooks/useLoginUser';
-import { ErrorResponse } from '@/types/error';
+import styles from "./login.module.css";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import Button from "@/components/common/Button/Button";
+import { UserContext } from "@/context/UserContext";
+import { ROUTES } from "@/router/Routes";
+import { LoginRequest } from "@/types/user";
+import { Form, Formik } from "formik";
+import { loginInitialValues, loginValidationSchema } from "../const";
+import FormikInput from "@/components/common/FormikInput/FormikInput";
+import { useLoginUser } from "@/hooks/useLoginUser";
+import { ErrorResponse } from "@/types/error";
 
 const Login = () => {
   const { login } = useContext(UserContext);
-  const [error, setError] = useState('');
   const { mutateAsync: loginUser } = useLoginUser();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
   const handleSubmit = async (formValues: LoginRequest) => {
     try {
@@ -24,7 +24,7 @@ const Login = () => {
       navigate(ROUTES.BASE);
     } catch (error) {
       const errorMessage = error as ErrorResponse;
-      setError(errorMessage.response?.data.message ?? '');
+      setError(errorMessage.response?.data.message ?? "");
     }
   };
 

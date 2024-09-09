@@ -1,13 +1,13 @@
 .avatar {
-    background-color: var(--color-purple-primary);
-    color: var(--color-white);
-    cursor: pointer;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 50%;
-    font-size: var(--font-size-xm);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: capitalize;
-  }
+  background-color: var(--color-purple-primary);
+  color: var(--color-white);
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  font-size: var(--font-size-xm);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: capitalize;
+}

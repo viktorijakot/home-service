@@ -1,52 +1,52 @@
 .container {
+  align-items: center;
+  background-color: var(--color-purple-tertiary);
+  border-radius: var(--spacing-xxxxs);
+  cursor: pointer;
+  color: var(--color-purple-quaternary);
+  display: flex;
+  flex-direction: column;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-m);
+  height: 140px;
+  justify-content: center;
+  gap: var(--spacing-xxs);
+  text-transform: capitalize;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  width: 160px;
+
+  &:hover {
+    background-color: var(--color-purple-super-light);
+    border-color: var(--color-purple-light);
+    color: var(--color-purple-primary);
+    transition: 0.3s;
+  }
+
+  &.rectangle {
     align-items: center;
-    background-color: var(--color-purple-tertiary);
-    border-radius: var(--spacing-xxxxs);
-    cursor: pointer;
-    color: var(--color-purple-quaternary);
-    display: flex;
-    flex-direction: column;
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-m);
-    height: 140px;
-    justify-content: center;
-    gap: var(--spacing-xxs);
-    text-transform: capitalize;
-    padding: var(--spacing-xs) var(--spacing-sm);
-    width: 160px;
+    background-color: var(--color-white);
+    border: 2px solid var(--color-grey-light);
+    border-radius: var(--border-radius-m);
+    color: var(--color-black-primary);
+    flex-direction: row;
+    font-size: var(--font-size-m);
+    gap: var(--spacing-xxxxs);
+    height: auto;
+    justify-content: left;
+    margin-bottom: var(--spacing-xxs);
+    padding: var(--spacing-xxs);
+    width: auto;
 
     &:hover {
-        background-color: var(--color-purple-super-light);
-        border-color: var(--color-purple-light);
-        color: var(--color-purple-primary);
-        transition: 0.3s;
+      background-color: var(--color-purple-tertiary);
+      border-color: var(--color-purple-light);
+      color: var(--color-purple-primary);
     }
 
-    &.rectangle {
-        align-items: center;
-        background-color: var(--color-white);
-        border: 2px solid var(--color-grey-light);
-        border-radius: var(--border-radius-m);
-        color: var(--color-black-primary);
-        flex-direction: row;
-        font-size: var(--font-size-m);
-        gap: var(--spacing-xxxxs);
-        height: auto;
-        justify-content: left;
-        margin-bottom: var(--spacing-xxs);
-        padding: var(--spacing-xxs); 
-        width: auto;
-
-        &:hover {
-            background-color: var(--color-purple-tertiary);
-            border-color: var(--color-purple-light);
-            color: var(--color-purple-primary);
-        }
-
-        &.active {
-            background-color: var(--color-purple-tertiary);
-            border-color: var(--color-black-primary);
-            color: var(--color-purple-primary)
-        }
+    &.active {
+      background-color: var(--color-purple-tertiary);
+      border-color: var(--color-black-primary);
+      color: var(--color-purple-primary);
     }
+  }
 }

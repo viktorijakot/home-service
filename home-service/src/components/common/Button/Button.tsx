@@ -5,26 +5,15 @@ const cx = classNames.bind(styles);
 
 interface ButtonProps {
   type: "button" | "submit" | "reset";
-  shape?: "rounded" | "circle";
+  shape?: "rounded" | "circle" | "fullWidth";
   children: React.ReactNode;
   isDisabled?: boolean;
   onClick?: () => void;
 }
 
-const Button = ({
-  type = "button",
-  children,
-  isDisabled = false,
-  onClick,
-  shape = "rounded",
-}: ButtonProps) => {
+const Button = ({ type = "button", children, isDisabled = false, onClick, shape = "rounded" }: ButtonProps) => {
   return (
-    <button
-      onClick={onClick}
-      disabled={isDisabled}
-      type={type}
-      className={cx("button", shape)}
-    >
+    <button onClick={onClick} disabled={isDisabled} type={type} className={cx("button", shape)}>
       {children}
     </button>
   );

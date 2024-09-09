@@ -1,0 +1,41 @@
+.title {
+  margin: var(--spacing-xs) 0 var(--spacing-xs) 0;
+}
+
+.similarContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-s);
+  width: 300px;
+  height: 300px;
+}
+
+.similarBusiness {
+  display: flex;
+  gap: var(--spacing-xs);
+}
+
+.businessImg {
+  border-radius: var(--border-radius-m);
+  height: 150px;
+  object-fit: cover;
+  width: 40%;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xxxs);
+  color: var(--color-grey-tertiary);
+}
+
+.similarName {
+  color: var(--color-black-primary);
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-m);
+  text-decoration: none;
+}
+
+.contactPerson {
+  color: var(--color-purple-primary);
+}

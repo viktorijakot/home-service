@@ -1,7 +1,5 @@
-import { UserContext } from "@/context/UserContext";
 import styles from "./avatar.module.css";
-import { useContext, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import UserSettingsDropDown from "../UserDropdownMenu/UserDropdownMenu";
 
 interface AvatarProps {

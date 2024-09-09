@@ -1,6 +1,6 @@
-import { Field, ErrorMessage } from 'formik';
-import styles from '../TextField/textField.module.css';
-import TextField from '../TextField/TextField';
+import { Field, ErrorMessage } from "formik";
+import styles from "../TextField/textField.module.css";
+import TextField from "../TextField/TextField";
 
 interface FormikFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
   name: string;
